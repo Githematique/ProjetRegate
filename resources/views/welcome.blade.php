@@ -14,32 +14,49 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+        <div class="pin-holder">
+            <label for="pin">Code</label>
+            <input type="password" name="pin" class="" id="pin">
         </div>
+
+        <section class="pinpad-container">
+            <div class="pinpad-row">
+              <div class="button">
+                1
+              </div>
+              <div class="button">
+                2
+              </div>
+              <div class="button">
+                3
+              </div>
+            </div>
+
+            <div class="pinpad-row">
+              <div class="button ">
+                4
+              </div>
+              <div class="button ">
+                5
+              </div>
+              <div class="button ">
+                6
+              </div>
+            </div>
+
+            <div class="pinpad-row">
+              <div class="button ">
+                7
+              </div>
+              <div class="button ">
+                8
+              </div>
+              <div class="button ">
+                9
+              </div>
+            </div>
+
+        </section>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
