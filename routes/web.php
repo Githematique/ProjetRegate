@@ -13,3 +13,6 @@
 
 Route::get('/', 'LoginController@index')->name('login');
 Auth::routes();
+
+Route::get('/gestion', 'AdminController@index')->name('accueil');
+Auth::routes();
