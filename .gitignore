@@ -14,8 +14,7 @@ public/hot
 storage/*.key
 /public/fonts
 /public/mix-manifest.json
-/public/js/app.js
-/public/js/vendor.js
+/public/js/*
 .env.*.php
 .env.php
 .env
