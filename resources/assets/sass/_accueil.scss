@@ -1,7 +1,7 @@
 .blockStatus{
 	background-color: blue;
 	width: 100%;
-	max-height: 50%;
+	max-height: 30%;
   	margin-left: auto;
   	margin-right: auto;
   	margin-top: 10%;
@@ -12,3 +12,63 @@
   		margin-top: 20%;
 
   	}
+.gif{
+  max-height: 200px;
+  width: 100%;
+}
+.panel{
+  margin-top: 5%;
+}
+.panel-heading{  
+  text-align: center;
+  color: black;
+  font: 35px arial;
+}
+.led1{
+  margin:0;
+  margin-left: 10%;
+  position:relative; 
+  display: inline-block; 
+  width: 1em; 
+  height: 1em; 
+  background: #ff0000; 
+  border-radius: 50%; 
+  vertical-align: middle; 
+  mix-blend-mode: hard-light;
+}
+.led2{
+  margin:0;
+  margin-left: 10%;
+  position:relative; 
+  display: inline-block; 
+  width: 1em; 
+  height: 1em; 
+  background: #3366ff; 
+  border-radius: 50%; 
+  vertical-align: middle; 
+  mix-blend-mode: hard-light;
+}
+.led3{
+  margin:0;
+  margin-left: 10%;
+  position:relative; 
+  display: inline-block; 
+  width: 1em; 
+  height: 1em; 
+  background: #66ff33; 
+  border-radius: 50%; 
+  vertical-align: middle; 
+  mix-blend-mode: hard-light;
+}
+.led4{
+  margin:0;
+  margin-left: 10%;
+  position:relative; 
+  display: inline-block; 
+  width: 1em; 
+  height: 1em; 
+  background: #ffff00; 
+  border-radius: 50%; 
+  vertical-align: middle; 
+  mix-blend-mode: hard-light;
+}
