@@ -14,91 +14,32 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <div class="dropdown-menu">
-            <ul>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-
-            <ul>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <div class="dropdown-menu">
-
-            <ul>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
+    <div class="container">
+  <div class="col-6 text-center" style="background-color: blue; margin-top: 10%;">
+    <h1 class="title">Block Status de la regate</h1>
+    <div>&larr; Affiche le status actuel de la regate  &rarr;</div>
+    <h2 class="subheading" data-breakpoint></h2>
   </div>
-  <!-- /.container-fluid -->
-</nav>
+  <div class="flex">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+      <button type="button" class="btn btn-primary">Apercu</button>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+      <button type="button" class="btn btn-primary">Depart</button>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+      <button type="button" class="btn btn-primary">Retard</button>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+      <button type="button" class="btn btn-primary">Rappel general</button>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+      <button type="button" class="btn btn-primary">Rappel individuel</button>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+      <button type="button" class="btn btn-primary">Annulation</button>
+    </div>
+    
+</div>
     </body>
 </html>
