@@ -22,7 +22,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#administration">Administration</a>
+              <li><a href="boatAdmin">Administration</a>
               </li>
             </ul>
           </div>

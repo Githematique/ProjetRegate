@@ -16,5 +16,6 @@ Auth::routes();
 Route::group(['middleware' => 'under-construction'], function () {
   // Route::get('/', 'LoginController@index')->name('login');
   Route::get('/', 'AdminControllers\AdminController@index')->name('accueil');
-  Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('accueil');
+  Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('adminBoat');
+  Route::get('/admin/resultats', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
 });
