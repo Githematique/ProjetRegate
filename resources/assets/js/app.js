@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-
+require('./fontawesome-all.min.js');
 // window.Vue = require('vue');
 //
 // /**

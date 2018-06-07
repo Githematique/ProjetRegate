@@ -11,10 +11,26 @@
 |
 */
 
-Route::get('/', 'LoginController@index')->name('login');
 Auth::routes();
+
 
 Route::get('/gestion', 'AdminController@index')->name('accueil');
 Auth::routes();
 
 Route::get('/ledOn', 'AdminController@ledOn');
+
+Route::group(['middleware' => 'under-construction'], function () {
+
+  Route::get('/', 'AdminControllers\AdminController@index')->name('accueil');
+
+  Route::get('/admin/resultats', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
+
+  //Boats Routing
+  Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('adminBoat');
+  Route::get('/admin/boat/add', 'AdminControllers\BoatAdminController@addBoatView')->name('adminBoat.add');
+  Route::post('/admin/boat/add', 'AdminControllers\BoatAdminController@store');
+
+
+
+});
+
