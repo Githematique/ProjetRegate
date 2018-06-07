@@ -10,11 +10,31 @@
   		width: 100%;
   		height: 20%;
   		margin-top: 5%;
-
+      color: black;
   	}
+
 .gif{
   max-height: 30%;
   width: 100%;
+}
+.apercu{
+  background-color: #0066ff;
+  color: black;
+}
+.depart{
+  background-color: #009933;
+}
+.rappel_g{
+  background-color: #cc33ff;
+}
+.rappel_i{
+  background-color: #ff9999;
+}
+.annulation{
+  background-color: #cc0000;
+}
+.modification{
+  background-color: #ff9900;
 }
 .panel{
   margin-top: 5%;
