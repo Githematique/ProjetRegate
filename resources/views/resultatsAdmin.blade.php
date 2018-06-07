@@ -9,7 +9,22 @@
       <div class="panel panel-default">
         <div class="panel-heading">Selection du fichier video :</div>
         <div class="panel-body">
-     
+
+
+     <video id="video" controls="" preload="none">
+      <source id="mp4" src="/videos/trailer.mp4" type="video/mp4">
+       <p>Votre navigateur ne supporte pas ce type de vidéo HTML.</p>
+ </video>
+
+<div id="buttons">
+      <button class="large awesome" onclick="document._video.load()">Recharger la vidéo</button>
+      <button class="large awesome" onclick="document._video.play()">Lire</button>
+      <button class="large awesome" onclick="document._video.pause()">pause</button>
+      <button class="large awesome" onclick="document._video.currentTime+=10">Avancer de 10s</button>
+      <button class="large awesome" onclick="document._video.currentTime-=10">Reculer de 10s</button>
+      <button class="large awesome" onclick="document._video.playbackRate++">Accelerer</button>
+      <button class="large awesome" onclick="document._video.playbackRate--">Ralenti</button>
+    </div>
         </div>
       </div>
   </div>
