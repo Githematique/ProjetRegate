@@ -9,21 +9,16 @@
       <div class="panel panel-default">
         <div class="panel-heading">Selection du fichier video :</div>
         <div class="panel-body">
-
-
-     <video id="video" controls="" preload="none">
-      <source id="mp4" src="/videos/trailer.mp4" type="video/mp4">
-       <p>Votre navigateur ne supporte pas ce type de vidéo HTML.</p>
+<video  id="video" controls="controls" preload="auto">
+      <source src="/videos/trailer.mp4" type="video/mp4">
+       <p>Your user agent does not support the HTML5 Video element.</p>
  </video>
-
 <div id="buttons">
-      <button class="large awesome" onclick="document._video.load()">Recharger la vidéo</button>
-      <button class="large awesome" onclick="document._video.play()">Lire</button>
-      <button class="large awesome" onclick="document._video.pause()">pause</button>
-      <button class="large awesome" onclick="document._video.currentTime+=10">Avancer de 10s</button>
-      <button class="large awesome" onclick="document._video.currentTime-=10">Reculer de 10s</button>
-      <button class="large awesome" onclick="document._video.playbackRate++">Accelerer</button>
-      <button class="large awesome" onclick="document._video.playbackRate--">Ralenti</button>
+      <button class="large awesome" onclick="document._video.playbackRate+=0.4">Accélérer</button>
+      <button class="large awesome" onclick="document._video.playbackRate-=0.4">Ralentir</button>
+      <button class="large awesome" onclick="document._video.currentTime+=10">+ 10 Secondes</button>
+      <button class="large awesome" onclick="document._video.currentTime-=10">- 10 Secondes</button>
+
     </div>
         </div>
       </div>
@@ -60,4 +55,10 @@
       </div>
   </div>
 </div>
+<script type="text/javascript">
+  function init() {
+    document._video = document.getElementById("video");
+}
+document.addEventListener("DOMContentLoaded", init, false);
+</script>
 @endsection
