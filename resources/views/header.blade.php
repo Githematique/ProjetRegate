@@ -14,6 +14,20 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
+      <nav id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header"><a class="navbar-brand" href="#home">Projet Régate</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#administration">Administration</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       
       @yield('content')
 
