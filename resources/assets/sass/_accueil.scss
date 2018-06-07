@@ -4,12 +4,12 @@
 	max-height: 30%;
   	margin-left: auto;
   	margin-right: auto;
-  	margin-top: 10%;
+  	margin-top: 5%;
 }
 .btn{
   		width: 100%;
-  		height: 140%;
-  		margin-top: 20%;
+  		height: 20%;
+  		margin-top: 5%;
 
   	}
 .gif{
@@ -71,4 +71,24 @@
   border-radius: 50%; 
   vertical-align: middle; 
   mix-blend-mode: hard-light;
+}
+.petitSon{
+  margin:0;
+  margin-left: 10%;
+  position:relative; 
+  display: inline-block; 
+  width: 1em; 
+  height: 1em; 
+  color: #ff0000; 
+  vertical-align: middle; 
+}
+.grandSon{
+  margin:0;
+  margin-left: 10%;
+  position:relative; 
+  display: inline-block; 
+  width: 1em; 
+  height: 1em; 
+  color: #ff0000; 
+  vertical-align: middle; 
 }

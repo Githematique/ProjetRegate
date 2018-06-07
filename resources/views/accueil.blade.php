@@ -11,13 +11,14 @@
 
     <div class="col-6">
       <div class="panel panel-default">
-        <div class="panel-heading">Suivit du visuel lumineux/Sonor en cours :</div>
+        <div class="panel-heading">Suivi du visuel en cours :</div>
         <div class="panel-body">
           <i class="led1"></i>
           <i class="led2"></i>
           <i class="led3"></i>
           <i class="led4"></i>
-          <i class="fas fa-anchor"></i><i class="fas fa-cogs"></i><i class="far fa-life-ring"></i>
+          <i class="fas fa-volume-down petitSon"></i>
+          <i class="fas fa-volume-up grandSon"></i>
         </div>
       </div>
     </div>
