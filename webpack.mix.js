@@ -16,4 +16,6 @@ mix.js(['resources/assets/js/app.js'
    .js(['resources/assets/js/customJs.js'
  ], 'public/js/script.js')
   .sass('resources/assets/sass/app.scss', 'public/css');
-mix.browserSync();
+mix.browserSync({
+  open: false
+});
