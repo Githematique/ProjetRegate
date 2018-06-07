@@ -11,7 +11,7 @@
         <div class="panel-body">
 <video  id="video" controls="controls" preload="auto">
       <source src="/videos/trailer.mp4" type="video/mp4">
-       <p>Your user agent does not support the HTML5 Video element.</p>
+       <p>Votre navigateur ne supporte pas les éléments HTML5 Video.</p>
  </video>
 <div id="buttons">
       <button class="large awesome" onclick="document._video.playbackRate+=0.4">Accélérer</button>
