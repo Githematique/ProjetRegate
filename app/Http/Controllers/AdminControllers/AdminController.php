@@ -172,6 +172,6 @@ class AdminController extends Controller
 		
         }
 
-      return redirect('/gestion');
+      return redirect('/');
    }
 }
