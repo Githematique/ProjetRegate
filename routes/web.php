@@ -15,12 +15,15 @@ Auth::routes();
 
 Route::group(['middleware' => 'under-construction'], function () {
 
-  //Routes
   Route::get('/', 'AdminControllers\AdminController@index')->name('accueil');
-  Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('adminBoat');
+
   Route::get('/admin/resultats', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
 
-  //Routes that interact with the DB
-  Route::post('/admin/addBoat', 'AdminControllers\BoatAdminController@store');
+  //Boats Routing
+  Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('adminBoat');
+  Route::get('/admin/boat/add', 'AdminControllers\BoatAdminController@addBoatView')->name('adminBoat.add');
+  Route::post('/admin/boat/add', 'AdminControllers\BoatAdminController@store');
+
+
 
 });

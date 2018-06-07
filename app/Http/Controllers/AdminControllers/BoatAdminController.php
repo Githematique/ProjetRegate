@@ -27,9 +27,14 @@ class BoatAdminController extends Controller
      */
     public function index()
     {
-        return view('boatAdmin');
+      $datas = DB::table('bateau')->orderBy('nom', 'ASC')->get()->all();
+      return view('/boatViews/boatsAdmin', compact('datas'));
     }
 
+    public function addBoatView()
+    {
+      return view('/boatViews/addBoatAdmin');
+    }
 
     public function store(Request $request) {
 
@@ -41,6 +46,6 @@ class BoatAdminController extends Controller
 
       DB::table('bateau')->insert($inputs);
 
-      return redirect('/');
+      return redirect('/admin/boat');
   }
 }
