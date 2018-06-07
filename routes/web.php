@@ -16,3 +16,5 @@ Auth::routes();
 
 Route::get('/gestion', 'AdminController@index')->name('accueil');
 Auth::routes();
+
+Route::get('/ledOn', 'AdminController@ledOn');

@@ -46,28 +46,32 @@
         </div>
       </div>
     </div>
+<form method="get" action="/ledOn" enctype="multipart/form-data">
+        
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <div class="flex">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <button type="button" class="btn btn-primary">Apercu</button>
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <button type="button" class="btn btn-primary">Départ</button>
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <button type="button" class="btn btn-primary">Retard</button>
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <button type="button" class="btn btn-primary">Rappel general</button>
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <button type="button" class="btn btn-primary">Rappel individuel</button>
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <button type="button" class="btn btn-primary">Annulation</button>
-    </div>   
-</div> 
+	  <div class="flex">
+	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	      <button type="submit" class="btn btn-primary" name="apercu">Apercu</button>
+	    </div>
+	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	      <button type="submit" class="btn btn-primary" name="depart">Départ</button>
+	    </div>
+	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	      <button type="submit" class="btn btn-primary" name="retard">Retard</button>
+	    </div>
+	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	      <button type="submit" class="btn btn-primary" name="rappel_g">Rappel general</button>
+	    </div>
+	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	      <button type="submit" class="btn btn-primary" name="rappel_i">Rappel individuel</button>
+	    </div>
+	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	      <button type="submit" class="btn btn-primary" name="annulation">Annulation</button>
+	    </div>   
+          </div> 
+   </div>
+</form>
 </div>
-</div>
+
     </body>
 </html>
