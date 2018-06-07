@@ -35,7 +35,7 @@ return [
     /*
      * Redirect url after a successful login.
      */
-    'redirect-url' => '/gestion',
+    'redirect-url' => '/',
 
     /*
      * Enable throttle (max login attempts).

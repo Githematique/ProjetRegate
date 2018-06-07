@@ -11,11 +11,10 @@
 |
 */
 
-// Route::get('/', 'LoginController@index')->name('login');
-// Route::get('/gestion', 'AdminController@index')->name('accueil');
 Auth::routes();
 
 Route::group(['middleware' => 'under-construction'], function () {
   // Route::get('/', 'LoginController@index')->name('login');
-  Route::get('/gestion', 'AdminController@index')->name('accueil');
+  Route::get('/', 'AdminControllers\AdminController@index')->name('accueil');
+  Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('accueil');
 });

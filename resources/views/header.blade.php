@@ -28,8 +28,11 @@
           </div>
         </div>
       </nav>
-      
+
+    <main class="main-container">
+
       @yield('content')
+    </main>
 
       <script type="text/javascript" src="{{ URL::asset('js/vendor.js') }}"></script>
       <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
