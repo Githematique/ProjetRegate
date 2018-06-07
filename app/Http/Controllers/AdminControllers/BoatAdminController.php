@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use DB;
+use Carbon;
 
 class BoatAdminController extends Controller
 {
@@ -25,4 +29,18 @@ class BoatAdminController extends Controller
     {
         return view('boatAdmin');
     }
+
+
+    public function store(Request $request) {
+
+      $inputs['serie'] = Input::get('serie');
+
+      $inputs['nom'] = Input::get('name');
+
+      $inputs['numVoile'] = Input::get('numVoile');
+
+      DB::table('bateau')->insert($inputs);
+
+      return redirect('/');
+  }
 }
