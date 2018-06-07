@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="form-container">
-  <form class="boat-form" action="/admin/addBoat" method="post">
+  <form class="boat-form" action="/admin/boat/add" method="post">
     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
       <div class="">
         <label for="serie">Série: </label>
