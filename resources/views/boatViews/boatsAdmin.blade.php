@@ -1,4 +1,4 @@
-@extends('header')
+@extends('adminHeader')
 
 @section('title', 'BoatAdmin')
 
@@ -22,11 +22,11 @@
         <th>{{ $data->nom }}</th>
         <th>{{ $data->serie }}</th>
         <th>{{ $data->numVoile }}</th>
-        {{-- <th>
-          <a href="{{ url('deleteNews/'.$data->id) }}" class="btn btn-operation btn-danger">
-	             Effacer
+        <th>
+          <a href="{{ url('/admin/boat/update/'.$data->bateau_id) }}" class="btn btn-operation">
+	             Modifier
 	        </a>
-        </th> --}}
+        </th>
       </tr>
       @endforeach
     </tbody>

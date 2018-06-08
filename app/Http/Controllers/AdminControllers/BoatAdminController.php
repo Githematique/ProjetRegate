@@ -36,6 +36,12 @@ class BoatAdminController extends Controller
       return view('/boatViews/addBoatAdmin');
     }
 
+    public function getBoat($bateau_id){
+
+      $boat = DB::table('bateau')->where("bateau_id", $bateau_id)->first();
+      return view('/boatViews/updateBoatAdmin', compact('boat'));
+    }
+
     public function store(Request $request) {
 
       $inputs['serie'] = Input::get('serie');
@@ -47,5 +53,18 @@ class BoatAdminController extends Controller
       DB::table('bateau')->insert($inputs);
 
       return redirect('/admin/boat');
+  }
+
+  public function updateBoat(Request $request, $bateau_id){
+
+    $inputs['serie'] = Input::get('serie');
+
+    $inputs['nom'] = Input::get('name');
+
+    $inputs['numVoile'] = Input::get('numVoile');
+
+    DB::table('bateau')->where("bateau_id", $bateau_id)->update($inputs);
+
+    return redirect('/admin/boat');
   }
 }
