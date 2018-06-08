@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
-
+use DB;
+use Carbon;
 class ResultatsAdminController extends Controller
 {
     /**
@@ -23,6 +24,12 @@ class ResultatsAdminController extends Controller
      */
     public function index()
     {
-        return view('resultatsAdmin');
+      $datas = DB::table('bateau')->orderBy('nom', 'ASC')->get()->all();
+      return view('resultatsAdmin', compact('datas'));
     }
+    public function store(Request $request) {
+      $inputs['nom'] = Input::get('name');
+      DB::table('bateau')->insert($inputs);
+      return redirect('/admin');
+  }
 }
