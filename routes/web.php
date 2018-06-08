@@ -21,7 +21,7 @@ Route::group(['middleware' => 'under-construction'], function () {
   
   Route::get('/', 'AdminControllers\AdminController@index')->name('accueil');
 
-  Route::get('/admin/resultats', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
+  Route::get('/admin/', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
 
   //Boats Routing
   Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('adminBoat');
