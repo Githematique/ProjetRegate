@@ -1,7 +1,8 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 // Variables
 @import "variables";
 @import "template";
@@ -9,5 +10,4 @@
 @import "accueil";
 @import "admin";
 @import "resultatsAdmin";
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
