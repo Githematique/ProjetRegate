@@ -1,4 +1,4 @@
-@extends('adminHeader')
+@extends('Header')
 
 @section('title', 'BoatAdmin')
 

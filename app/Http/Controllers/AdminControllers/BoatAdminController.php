@@ -67,4 +67,15 @@ class BoatAdminController extends Controller
 
     return redirect('/admin/boat');
   }
+
+  public function delete($id){
+
+    $boat = \DB::table('bateau')->where('bateau_id', '=', $id);
+
+     if (!is_null($boat)) {
+        $boat->delete();
+    }
+
+    return redirect('/admin/boat');
+  }
 }

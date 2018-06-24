@@ -1,34 +1,34 @@
 @extends('Header')
 
-@section('title', 'BoatAdmin')
+@section('title', 'CrewAdmin')
 
 @section('content')
 
 <section class="form-container">
   <ul class="pager">
-    <li class="previous"><a href="{{ url('/admin/boat/add') }}">Enregistrer un nouveau bateau</a></li>
+    <li class="previous"><a href="{{ url('/admin/crew/add') }}">Enregistrer un nouveau équipier</a></li>
   </ul>
   <table class="table">
     <thead>
       <tr>
         <th>Nom</th>
-        <th>Serie</th>
-        <th>N° Voile</th>
+        <th>Prénom</th>
+        <th>Role</th>
       </tr>
     </thead>
     <tbody>
       @foreach($datas as $data)
       <tr>
         <th>{{ $data->nom }}</th>
-        <th>{{ $data->serie }}</th>
-        <th>{{ $data->numVoile }}</th>
+        <th>{{ $data->prenom }}</th>
+        <th>{{ $data->role }}</th>
         <th>
-          <a href="{{ url('/admin/boat/update/'.$data->bateau_id) }}" class="btn btn-operation">
+          <a href="{{ url('/admin/crew/update/'.$data->equipier_id) }}" class="btn btn-operation">
 	             Modifier
 	        </a>
         </th>
         <th>
-          <a href="{{ url('/admin/boat/delete/'.$data->bateau_id) }}" class="btn btn-operation btn-danger">
+          <a href="{{ url('/admin/crew/delete/'.$data->equipier_id) }}" class="btn btn-operation btn-danger">
              Effacer
           </a>
         </th>
