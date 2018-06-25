@@ -68,7 +68,7 @@
           </div>
       </div>
   </div>
-
+<a id="test">intitulé</a>
 </div>
 <script type="text/javascript">
 var ladate=new Date()
@@ -76,10 +76,18 @@ document.write("Heure brute : ");
 document.write(ladate.getHours()+":"+ladate.getMinutes()+":"+ladate.getSeconds());
 
   function init() {
-    document._video = document.getElementById("video");
+    var oA = document.getElementById('test');
+
+   oA.onclick = function()
+   {
+      document._video = document.getElementById("video");
     var curtime = document._video.currentTime;
-    console.log(curtime);
+    alert(curtime);
+      };
+   
+    
 }
 document.addEventListener("DOMContentLoaded", init, false);
+
 </script>
 @endsection
