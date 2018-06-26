@@ -45,6 +45,7 @@
         </div>
     </div>
   </div>
+
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
      <div class="panel panel-default">
         <div class="panel-heading">Podium : <i class="far fa-file-pdf"></i> </div>
@@ -68,12 +69,26 @@
           </div>
       </div>
   </div>
-
+<a id="test">intitulé</a>
 </div>
 <script type="text/javascript">
+var ladate=new Date()
+document.write("Heure brute : ");
+document.write(ladate.getHours()+":"+ladate.getMinutes()+":"+ladate.getSeconds());
+
   function init() {
-    document._video = document.getElementById("video");
+    var oA = document.getElementById('test');
+
+   oA.onclick = function()
+   {
+      document._video = document.getElementById("video");
+    var curtime = document._video.currentTime;
+    alert(curtime);
+      };
+   
+    
 }
 document.addEventListener("DOMContentLoaded", init, false);
+
 </script>
 @endsection
