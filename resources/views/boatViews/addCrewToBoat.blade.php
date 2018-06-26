@@ -4,27 +4,31 @@
 
 @section('content')
 
-<section class="form-container addCrewToBoat-container">
+<div class="row text-center">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Informations du bateau :</div>
+        <div class="panel-body">
   <div class="boat-container">
-    <div class="">
-      <strong>Nom</strong>: {{ $boat->nom }}
+    <div class="form-group">
+      <strong>Nom </strong>: {{ $boat->nom }}
     </div>
-    <div class="">
-      <strong>Série</strong>: {{ $boat->serie }}
+    <div class="form-group">
+      <strong>Série </strong>: {{ $boat->serie }}
     </div>
-    <div class="">
-      <strong>Voile</strong>: {{ $boat->numVoile }}
+    <div class="form-group">
+      <strong>Voile </strong>: {{ $boat->numVoile }}
     </div>
-    <div class="">
+    <div class="form-group">
       {{-- {{count($boat->equipiers)}} --}}
       @if (strlen($boat->equipiers) > 0 && count($equipiers) >= 1 )
-        <strong>Equipiers</strong>:
+        <strong>Equipiers </strong>:
         @foreach ( $equipiers as $key => $equipier)
           <div class="">
             <form class="" action="/admin/boat/removeCrew/{{ $boat->bateau_id }}/{{ $key }}" method="get">
               <input name="_token" type="hidden" value="{{ csrf_token() }}" />
               <label for="">{{$equipier }}</label>
-              <input type="submit" name="removeCrew" value="x">
+              <input type="submit" name="removeCrew" value="x" title="Supprimer cet équipier">
             </form>
 
           </div>
@@ -35,6 +39,13 @@
       @endforeach --}}
     </div>
   </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Liste des équipiers disponible :</div>
+        <div class="panel-body">
   <div class="crews-container">
     @foreach ($crews as $index => $crew)
       <div class="">
@@ -48,6 +59,9 @@
         {{-- <a href="{{url('/admin/boat/addCrew/'.$boat->bateau_id.'/'.$crew->equipier_id)}}">Ajouter</a> --}}
       </div>
     @endforeach
+  </div>
+          </div>
+      </div>
   </div>
   {{-- <form class="boat-form" action="/admin/boat/add" method="post">
     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
