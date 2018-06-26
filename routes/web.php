@@ -46,8 +46,8 @@ Route::group(['middleware' => 'under-construction'], function () {
   Route::get('/admin/crew/delete/{crewId}', 'AdminControllers\CrewAdminController@delete');
 
   //Regate Routing
-  Route::get('/admin/regate', 'AdminControllers\CrewAdminController@index')->name('adminCrew');
-  // Route::get('/admin/crew/add', 'AdminControllers\CrewAdminController@addCrewView')->name('adminCrew.add');
+  Route::get('/admin/regate', 'AdminControllers\RegateAdminController@index')->name('regateAdmin');
+  Route::post('/admin/regate/update', 'AdminControllers\RegateAdminController@updateRegate')->name('regateAdmin.update');
   // Route::get('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@getCrew')->name('adminCrew.update');
   // Route::post('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@updateCrew');
   // Route::post('/admin/crew/add', 'AdminControllers\CrewAdminController@store');
