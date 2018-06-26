@@ -12,15 +12,15 @@
           <div class="panel-body">
 <SCRIPT LANGUAGE="JavaScript">
 // Set the BaseURL to the URL of your camera
-var BaseURL = "http://10.40.74.51/";
+var BaseURL = "http://169.254.157.106/";
 
 // DisplayWidth & DisplayHeight specifies the displayed width & height of the image.
 // You may change these numbers, the effect will be a stretched or a shrunk image
-var DisplayWidth = "50%";
+var DisplayWidth = "40%";
 var DisplayHeight = "50%";
 
 // This is the path to the image generating file inside the camera itself
-var File = "axis-cgi/mjpg/video.cgi?resolution=320x240";
+var File = "axis-cgi/mjpg/video.cgi?resolution=640x480&clock=1&date=0";
 // No changes required below this point
 var output = "";
 if ((navigator.appName == "Microsoft Internet Explorer") &&
