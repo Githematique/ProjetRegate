@@ -23,7 +23,7 @@
         <th>{{ $data->serie }}</th>
         <th>{{ $data->numVoile }}</th>
         <th>
-          <a href="{{ url('/admin/boat/update/'.$data->bateau_id) }}" class="btn btn-operation">
+          <a href="{{ url('/admin/boat/update/'.$data->bateau_id) }}" class="btn btn-info">
 	             Modifier
 	        </a>
         </th>

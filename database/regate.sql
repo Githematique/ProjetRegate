@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 06 juin 2018 à 12:03
+-- Généré le :  mar. 26 juin 2018 à 14:46
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -11,6 +11,12 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `regate`
@@ -28,7 +34,30 @@ CREATE TABLE IF NOT EXISTS `bateau` (
   `serie` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `numVoile` int(11) NOT NULL,
+  `equipiers` text,
   PRIMARY KEY (`bateau_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `bateau`
+--
+
+INSERT INTO `bateau` (`bateau_id`, `serie`, `nom`, `numVoile`, `equipiers`) VALUES
+(9, 'test', 'Qixin', 112, 'a:1:{i:0;s:19:\"Suliman Abdergadeir\";}'),
+(10, 'Bonjour', 'Aurevoir', 1111, 'a:1:{i:1;s:10:\"Qixin Ying\";}');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bateauequipier`
+--
+
+DROP TABLE IF EXISTS `bateauequipier`;
+CREATE TABLE IF NOT EXISTS `bateauequipier` (
+  `bateau` int(10) UNSIGNED NOT NULL,
+  `equipier` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`bateau`,`equipier`),
+  KEY `Constr_bateauEquipier_equipier_fk` (`equipier`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -44,7 +73,16 @@ CREATE TABLE IF NOT EXISTS `equipier` (
   `prenom` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
   PRIMARY KEY (`equipier_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `equipier`
+--
+
+INSERT INTO `equipier` (`equipier_id`, `nom`, `prenom`, `role`) VALUES
+(4, 'Abdergadeir', 'Suliman', 'Voilier'),
+(3, 'Verc', 'Clement', 'Capitaine'),
+(5, 'Ying', 'Qixin', 'TEst');
 
 -- --------------------------------------------------------
 
@@ -63,33 +101,25 @@ CREATE TABLE IF NOT EXISTS `regate` (
   `comiteDeCourse` varchar(255) NOT NULL,
   `securite` varchar(255) NOT NULL,
   `officierDeJour` varchar(255) NOT NULL,
+  `etape` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`regate_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `bateauEquipier`;
-CREATE TABLE IF NOT EXISTS `bateauEquipier` (
-    `bateau` INT UNSIGNED NOT NULL,
-    `equipier` INT UNSIGNED NOT NULL,
-    PRIMARY KEY (`bateau`, `equipier`),
-    CONSTRAINT `Constr_bateauEquipier_bateau_fk`
-        FOREIGN KEY `bateau_fk` (`bateau`) REFERENCES `bateau` (`bateau_id`)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `Constr_bateauEquipier_equipier_fk`
-        FOREIGN KEY `equipier_fk` (`equipier`) REFERENCES `equipier` (`equipier_id`)
-        ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `regatebateau`
+--
 
-DROP TABLE IF EXISTS `regateBateau`;
-CREATE TABLE IF NOT EXISTS `regateBateau` (
-    `regate` INT UNSIGNED NOT NULL,
-    `bateau` INT UNSIGNED NOT NULL,
-    PRIMARY KEY (`regate`, `bateau`),
-    CONSTRAINT `Constr_regateBateau_regate_fk`
-        FOREIGN KEY `regate_fk` (`regate`) REFERENCES `regate` (`regate_id`)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `Constr_regateBateau_bateau_fk`
-        FOREIGN KEY `bateau_fk` (`bateau`) REFERENCES `bateau` (`bateau_id`)
-        ON DELETE CASCADE ON UPDATE CASCADE
+DROP TABLE IF EXISTS `regatebateau`;
+CREATE TABLE IF NOT EXISTS `regatebateau` (
+  `regate` int(10) UNSIGNED NOT NULL,
+  `bateau` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`regate`,`bateau`),
+  KEY `Constr_regateBateau_bateau_fk` (`bateau`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

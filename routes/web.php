@@ -30,6 +30,10 @@ Route::group(['middleware' => 'under-construction'], function () {
   Route::post('/admin/boat/update/{boatId}', 'AdminControllers\BoatAdminController@updateBoat');
   Route::post('/admin/boat/add', 'AdminControllers\BoatAdminController@store');
   Route::get('/admin/boat/delete/{boatId}', 'AdminControllers\BoatAdminController@delete');
+  // add crew to boat routing
+  Route::get('/admin/boat/addCrew/{boatId}', 'AdminControllers\BoatAdminController@getBoatAndCrews')->name('adminBoat.addCrewView');
+  Route::post('/admin/boat/addCrew/{boatId}/{crewId}', 'AdminControllers\BoatAdminController@addCrew')->name('adminBoat.addCrew');
+  Route::get('/admin/boat/removeCrew/{boatId}/{crewId}', 'AdminControllers\BoatAdminController@removeCrew')->name('adminBoat.removeCrew');
 
   //Crew Routing
   Route::get('/admin/crew', 'AdminControllers\CrewAdminController@index')->name('adminCrew');
@@ -38,4 +42,12 @@ Route::group(['middleware' => 'under-construction'], function () {
   Route::post('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@updateCrew');
   Route::post('/admin/crew/add', 'AdminControllers\CrewAdminController@store');
   Route::get('/admin/crew/delete/{crewId}', 'AdminControllers\CrewAdminController@delete');
+
+  //Regate Routing
+  Route::get('/admin/regate', 'AdminControllers\CrewAdminController@index')->name('adminCrew');
+  // Route::get('/admin/crew/add', 'AdminControllers\CrewAdminController@addCrewView')->name('adminCrew.add');
+  // Route::get('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@getCrew')->name('adminCrew.update');
+  // Route::post('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@updateCrew');
+  // Route::post('/admin/crew/add', 'AdminControllers\CrewAdminController@store');
+  // Route::get('/admin/crew/delete/{crewId}', 'AdminControllers\CrewAdminController@delete');
 });

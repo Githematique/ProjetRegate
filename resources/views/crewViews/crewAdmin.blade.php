@@ -23,7 +23,7 @@
         <th>{{ $data->prenom }}</th>
         <th>{{ $data->role }}</th>
         <th>
-          <a href="{{ url('/admin/crew/update/'.$data->equipier_id) }}" class="btn btn-operation">
+          <a href="{{ url('/admin/crew/update/'.$data->equipier_id) }}" class="btn btn-primary">
 	             Modifier
 	        </a>
         </th>
