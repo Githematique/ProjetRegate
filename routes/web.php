@@ -23,6 +23,8 @@ Route::group(['middleware' => 'under-construction'], function () {
 
   Route::get('/admin/', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
 
+  Route::get('/admin/camera', 'AdminControllers\CameraController@index')->name('camera');
+
   //Boats Routing
   Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('adminBoat');
   Route::get('/admin/boat/add', 'AdminControllers\BoatAdminController@addBoatView')->name('adminBoat.add');

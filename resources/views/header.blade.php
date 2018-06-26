@@ -25,6 +25,7 @@
               <li><a href="/admin/regate">Parametrage de la Regate</a></li>
               <li><a href="/admin/boat">Gestion des bateaux</a></li>
               <li><a href="/admin/crew">Gestion des équipages</a></li>
+              <li><a href="/admin/camera">Camera</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="/admin">Administration <i class="fas fa-cogs"></i></a>
