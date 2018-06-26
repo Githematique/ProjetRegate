@@ -23,6 +23,11 @@
         <th>{{ $data->serie }}</th>
         <th>{{ $data->numVoile }}</th>
         <th>
+          <a href="{{ url('/admin/boat/addCrew/'.$data->bateau_id) }}" class="btn btn-info">
+               Gérer l'équipage
+          </a>
+        </th>
+        <th>
           <a href="{{ url('/admin/boat/update/'.$data->bateau_id) }}" class="btn btn-info">
 	             Modifier
 	        </a>

@@ -76,7 +76,18 @@ class BoatAdminController extends Controller
     {
         $boat = DB::table('bateau')->where("bateau_id", $id)->first();
         $serializedArr = unserialize($boat->equipiers);
+
         $crews = DB::table('equipier')->get()->all();
+        if (strlen($boat->equipiers) > 0 && count($serializedArr) >= 1 ) {
+          foreach ($crews as $key => $crew) {
+            foreach ($serializedArr as $crew_id => $equipier) {
+              if ($crew_id == $crew->equipier_id) {
+                unset($crews[$key]);
+              }
+            }
+          }
+        }
+
         return view('/boatViews/addCrewToBoat',  compact('boat', 'crews'))->with('equipiers', $serializedArr);
     }
 
@@ -93,7 +104,7 @@ class BoatAdminController extends Controller
           DB::table('bateau')->where("bateau_id", $bateau_id)->update(['equipiers' => $serializedArr]);
         } else {
           $listOfCrew = unserialize($boat->equipiers);
-          $newArray = array_merge($listOfCrew, $inputs);
+          $newArray = $listOfCrew + $inputs;
 
           $serializedArr = serialize($newArray);
           DB::table('bateau')->where("bateau_id", $bateau_id)->update(['equipiers' => $serializedArr]);

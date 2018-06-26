@@ -23,7 +23,7 @@
           <div class="">
             <form class="" action="/admin/boat/removeCrew/{{ $boat->bateau_id }}/{{ $key }}" method="get">
               <input name="_token" type="hidden" value="{{ csrf_token() }}" />
-              <label for="">{{ $equipier }}</label>
+              <label for="">{{$equipier }}</label>
               <input type="submit" name="removeCrew" value="x">
             </form>
 
