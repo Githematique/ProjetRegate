@@ -47,7 +47,7 @@ Route::group(['middleware' => 'under-construction'], function () {
 
   //Regate Routing
   Route::get('/admin/regate', 'AdminControllers\RegateAdminController@index')->name('regateAdmin');
-  Route::post('/admin/regate/update', 'AdminControllers\RegateAdminController@updateRegate')->name('regateAdmin.update');
+  Route::post('/admin/regate/update/{regateId}', 'AdminControllers\RegateAdminController@updateRegate')->name('regateAdmin.update');
   // Route::get('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@getCrew')->name('adminCrew.update');
   // Route::post('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@updateCrew');
   // Route::post('/admin/crew/add', 'AdminControllers\CrewAdminController@store');

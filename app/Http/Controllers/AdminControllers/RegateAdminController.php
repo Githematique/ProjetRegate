@@ -32,7 +32,7 @@ class RegateAdminController extends Controller
       return view('/regateViews/createRegateAdmin')->with('regate', $regate);
     }
 
-    public function updateRegate(Request $request) {
+    public function updateRegate(Request $request, $regate_id) {
 
       $inputs['nom'] = Input::get('name');
       $inputs['date'] = Input::get('date');
@@ -43,7 +43,7 @@ class RegateAdminController extends Controller
       $inputs['securite'] = Input::get('security');
       $inputs['officierDeJour'] = Input::get('officer');
       $inputs['etape'] = 0;
-      DB::table('regate')->insert($inputs);
+      DB::table('regate')->where("regate_id", $regate_id)->update($inputs);
       return redirect('/admin/regate');
     }
 

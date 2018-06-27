@@ -5,7 +5,7 @@
 @section('content')
 
   <section class="form-container">
-    <form class="boat-form" action="/admin/regate/update" method="post">
+    <form class="boat-form" action="/admin/regate/update/{{$regate->regate_id}}" method="post">
       <input name="_token" type="hidden" value="{{ csrf_token() }}" />
         <div class="">
           <label for="lastName">Nom: </label>
