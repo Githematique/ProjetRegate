@@ -83,7 +83,11 @@ class BoatAdminController extends Controller
             foreach ($serializedArr as $crew_id => $equipier) {
               if ($crew_id == $crew->equipier_id) {
                 unset($crews[$key]);
+                continue;
               }
+            }
+            if ($crew->occupe == true) {
+              unset($crews[$key]);
             }
           }
         }
@@ -94,24 +98,25 @@ class BoatAdminController extends Controller
     //add a crew to boat
     public function addCrew($bateau_id, $equipier_id)
     {
-        $inputs = array(strval($equipier_id) => Input::get('lastName').' '.Input::get('firstName'));
+        $crew = DB::table('equipier')->where('equipier_id', $equipier_id)->first();
 
+        if($crew->occupe == true) {
+          return null;
+        }
+
+        $inputs = array(strval($equipier_id) => Input::get('lastName').' '.Input::get('firstName'));
 
         $boat = DB::table('bateau')->where("bateau_id", $bateau_id)->first();
         if (strlen($boat->equipiers) <=0) {
           $serializedArr = serialize($inputs);
-
           DB::table('bateau')->where("bateau_id", $bateau_id)->update(['equipiers' => $serializedArr]);
         } else {
           $listOfCrew = unserialize($boat->equipiers);
           $newArray = $listOfCrew + $inputs;
-
           $serializedArr = serialize($newArray);
           DB::table('bateau')->where("bateau_id", $bateau_id)->update(['equipiers' => $serializedArr]);
         }
-
-        $crews = DB::table('equipier')->get()->all();
-
+        DB::table('equipier')->where('equipier_id', $equipier_id)->update(['occupe' => true]);
         return redirect()->route('adminBoat.addCrewView', ['boatId' => $bateau_id]);
     }
 
@@ -123,11 +128,13 @@ class BoatAdminController extends Controller
         foreach ($listOfCrew as $key => $crew) {
           if ($key == $equipier_id) {
             unset($listOfCrew[$key]);
+            DB::table('equipier')->where('equipier_id', $equipier_id)->update(['occupe' => false]);
             break;
           }
         }
         $serializedArr = serialize($listOfCrew);
         DB::table('bateau')->where("bateau_id", $bateau_id)->update(['equipiers' => $serializedArr]);
+
         return redirect()->route('adminBoat.addCrewView', ['boatId' => $bateau_id]);
     }
 }
