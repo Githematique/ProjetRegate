@@ -149,7 +149,7 @@ class AdminController extends Controller
             $gpio_buzzer_off = shell_exec("/usr/local/bin/gpio -g write 2 0");
             $gpio_blue_off = shell_exec("/usr/local/bin/gpio -g write 27 0");
             $gpio_orange_off = shell_exec("/usr/local/bin/gpio -g write 22 0");
-        }
+         }
 
         if (isset($_GET['rappel_g'])) {
 
@@ -166,7 +166,11 @@ class AdminController extends Controller
                 $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
                 sleep(2);
                 $gpio_buzzer_off = shell_exec("/usr/local/bin/gpio -g write 2 0");
-            }
+             }
+        }
+        if (isset($_GET['modification'])) {
+
+            DB::table('regate')->update(['etape' => 'modification']);
         }
 
         if (isset($_GET['annulation'])) {
