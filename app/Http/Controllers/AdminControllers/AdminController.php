@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
+use DB;
 
 class AdminController extends Controller
 {
@@ -33,6 +34,9 @@ class AdminController extends Controller
         $setmode2_buzzer = shell_exec("/usr/local/bin/gpio -g mode 2 out");
 
         if (isset($_GET['apercu'])) {
+
+            DB::table('regate')->update(['etape' => 'apercu']);
+
             $gpio_red_on = shell_exec("/usr/local/bin/gpio -g write 17 1");
             $gpio_blue_on = shell_exec("/usr/local/bin/gpio -g write 27 1");
             $gpio_orange_on = shell_exec("/usr/local/bin/gpio -g write 22 1");
@@ -40,7 +44,11 @@ class AdminController extends Controller
             $gpio_red_off = shell_exec("/usr/local/bin/gpio -g write 17 0");
             $gpio_blue_off = shell_exec("/usr/local/bin/gpio -g write 27 0");
             $gpio_orange_off = shell_exec("/usr/local/bin/gpio -g write 22 0");
+
         } elseif (isset($_GET['depart'])) {
+
+            DB::table('regate')->update(['etape' => 'depart']);
+
             for ($x = 1; $x <= 10; $x++) {
                 $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
                 sleep(0.5);
@@ -89,6 +97,8 @@ class AdminController extends Controller
         }
 
         if (isset($_GET['retard'])) {
+
+            DB::table('regate')->update(['etape' => 'retard']);
             for ($x = 1; $x <= 10; $x++) {
                 $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
                 sleep(0.5);
@@ -116,6 +126,8 @@ class AdminController extends Controller
         }
 
         if (isset($_GET['rappel_i'])) {
+
+            DB::table('regate')->update(['etape' => 'rappel_i']);
             for ($x = 1; $x <= 10; $x++) {
                 $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
                 sleep(0.5);
@@ -132,6 +144,8 @@ class AdminController extends Controller
         }
 
         if (isset($_GET['rappel_g'])) {
+
+            DB::table('regate')->update(['etape' => 'rappel_g']);
             for ($x = 1; $x <= 10; $x++) {
                 $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
                 sleep(0.5);
@@ -148,6 +162,8 @@ class AdminController extends Controller
         }
 
         if (isset($_GET['annulation'])) {
+
+            DB::table('regate')->update(['etape' => 'annulation']);
             for ($x = 1; $x <= 10; $x++) {
                 $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
                 sleep(0.5);
