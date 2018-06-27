@@ -48,6 +48,13 @@
    </div>
 </form>
 </div>
-    </body>
-</html>
+<script type="text/javascript">
+  var test = '{!! $regate->etape !!}';
+  console.log(test);
+  if (test == 'depart') {
+    console.log('ça marche ');
+  } else {
+    console.log('t es nul');
+  }
+</script>
 

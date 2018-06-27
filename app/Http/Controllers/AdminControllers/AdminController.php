@@ -23,7 +23,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('accueil');
+        $regate = DB::table('regate')->get()->first();
+        return view('accueil')->with('regate', $regate);
     }
 
     public function ledOn()
