@@ -35,6 +35,7 @@ class BoatAdminController extends Controller
         $inputs['serie'] = Input::get('serie');
         $inputs['nom'] = Input::get('name');
         $inputs['numVoile'] = Input::get('numVoile');
+        $inputs['coefficient'] = Input::get('coefficient');
         DB::table('bateau')->insert($inputs);
 
         return redirect('/admin/gestion');
@@ -45,6 +46,7 @@ class BoatAdminController extends Controller
         $inputs['serie'] = Input::get('serie');
         $inputs['nom'] = Input::get('name');
         $inputs['numVoile'] = Input::get('numVoile');
+        $inputs['coefficient'] = Input::get('coefficient');
         DB::table('bateau')->where("bateau_id", $bateau_id)->update($inputs);
 
         return redirect('/admin/gestion');

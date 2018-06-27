@@ -3,13 +3,13 @@
 @section('title', 'GestionAdmin')
 
 @section('content')
-<section class="gestion-container">
-  <div class="container">
-    <h1> LISTE DES BATEAUX : </h1>
-    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 centered">
-      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      </div>
-      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div class="row text-center">
+
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">LISTE DES BATEAUX : </div>
+        <div class="panel-body">
+      <div class="form-group">
       <a class="btn btn-info" href="{{ url('/admin/boat/add') }}" role="button"> Ajouter un nouveau bateau</a>
     </div>
     <table class="table table-hover">
@@ -45,14 +45,13 @@
       </tbody>
     </table>
     </div>
+    </div>
   </div>
-
-  <div class="container">
-    <h1> LISTE DES MEMBRES : </h1>
-    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 centered">
-      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      </div>
-      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+ <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">LISTE DES MEMBRES : </div>
+        <div class="panel-body">
+      <div class="form-group">
         <a class="btn btn-info" href="{{ url('/admin/crew/add') }}" role="button"> Ajouter un nouveau membre</a>
       </div>
       <table class="table table-hover">
@@ -82,6 +81,7 @@
       </table>
     </div>
   </div>
-</section>
+</div>
+</div>
 
 @endsection
