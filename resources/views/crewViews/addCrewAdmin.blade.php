@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 centered">
-  <h1>Ajout d'un nouvel équipier :</h1>
+  <h1>Informations du nouveau membre :</h1>
   <form class="boat-form" action="/admin/crew/add" method="post" style="margin-top: 20px;">
     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
       <div class="form-group col-xs-3 col-sm-3 col-md-3  col-lg-3">
@@ -25,7 +25,7 @@
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div class="form-group ">
-          <button type="submit" class="btn btn-primary">Ajouter un équipier</button>
+          <button type="submit" class="btn btn-primary">Ajouter ce membre</button>
         </div>
       </div>
   </form>

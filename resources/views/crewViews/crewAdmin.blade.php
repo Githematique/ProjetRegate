@@ -5,12 +5,12 @@
 @section('content')
 
 <div class="container">
-  <h1> LISTE DES EQUIPIERS : </h1>
+  <h1> LISTE DES MEMBRES : </h1>
   <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 centered">
     <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
     </div>
     <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <a class="btn btn-info" href="{{ url('/admin/crew/add') }}" role="button"> Ajouter un nouvel équiper</a>
+      <a class="btn btn-info" href="{{ url('/admin/crew/add') }}" role="button"> Ajouter un nouveau membre</a>
     </div>
     <table class="table table-hover">
       <thead>
