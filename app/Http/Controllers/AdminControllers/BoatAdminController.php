@@ -61,6 +61,7 @@ class BoatAdminController extends Controller
 
 
     //get page "addCrewToBoat"
+    //Unserializing a string as an array
     public function getBoatAndCrews($id)
     {
         $boat = DB::table('bateau')->where("bateau_id", $id)->first();
@@ -85,6 +86,7 @@ class BoatAdminController extends Controller
     }
 
     //add a crew to boat
+    //Serializing an array to transforms it to a string so we can store it in the DB
     public function addCrew($bateau_id, $equipier_id)
     {
         $crew = DB::table('equipier')->where('equipier_id', $equipier_id)->first();
@@ -110,6 +112,7 @@ class BoatAdminController extends Controller
     }
 
     //remove a crew from boat
+    //Serializing an array to transforms it to a string so we can store it in the DB
     public function removeCrew($bateau_id, $equipier_id)
     {
         $boat = DB::table('bateau')->where("bateau_id", $bateau_id)->first();
