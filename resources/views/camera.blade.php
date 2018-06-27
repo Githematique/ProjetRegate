@@ -42,12 +42,7 @@ if ((navigator.appName == "Microsoft Internet Explorer") &&
   output += '<param name="ShowStatusBar" value="0">';
   output += '<param name="ShowToolbar" value="0">';
   output += '<param name="AutoStart" value="1">';
-  output += '<param name="StretchToFit" value="1">';
-  output += '<BR><B>Axis Media Control</B><BR>';
-  output += 'The AXIS Media Control, which enables you ';
-  output += 'to view live image streams in Microsoft Internet';
-  output += ' Explorer, could not be registered on your computer.';
-  output += '<BR></OBJECT>';
+  output += '<param name="StretchToFit" value="1"></OBJECT>';
 } else {
   // If not IE for Windows use the browser itself to display
   theDate = new Date();

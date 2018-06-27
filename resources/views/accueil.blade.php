@@ -26,23 +26,23 @@
         
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	  <div class="flex">
-	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	      <button type="submit" class="btn apercu" name="apercu">Apercu</button>
 	    </div>
-	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	      <button type="submit" class="btn depart" name="depart">Départ</button>
 	    </div>
-	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-	      <button type="submit" class="btn rappel_g" name="rappel_g">Rappel general</button>
+	    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+	      <button type="submit" class="btn rappel_g hide" name="rappel_g">Rappel</br>général</button>
 	    </div>
-	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-	      <button type="submit" class="btn rappel_i" name="rappel_i">Rappel individuel</button>
+	    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+	      <button type="submit" class="btn rappel_i hide" name="rappel_i">Rappel </br>individuel</button>
 	    </div>
-	    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-	      <button type="submit" class="btn annulation" name="annulation">Annulation</button>
+	    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+	      <button type="submit" class="btn annulation hide" name="annulation">Annulation</button>
 	    </div>   
-      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <button type="submit" class="btn modification" name="modification">Modification de parcours</button>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <button type="submit" class="btn modification hide" name="modification">Modification </br>de parcours</button>
       </div>   
     </div> 
    </div>
