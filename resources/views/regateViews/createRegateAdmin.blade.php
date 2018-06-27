@@ -42,7 +42,7 @@
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Enregistrer les paramettres de la régate</button>
+            <button type="submit" class="btn btn-primary">Enregistrer les informations de la régate</button>
           </div>
         </div>
     </form>

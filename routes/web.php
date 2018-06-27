@@ -23,10 +23,13 @@ Route::group(['middleware' => 'under-construction'], function () {
 
   Route::get('/admin/', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
 
+  //Dashboard to manage results and the camera
   Route::get('/admin/camera', 'AdminControllers\CameraController@index')->name('camera');
 
+  //Dashboard to manage boats and crews
+  Route::get('/admin/gestion', 'AdminControllers\AdminController@gestionAdminView')->name('adminGestion');
+
   //Boats Routing
-  Route::get('/admin/boat', 'AdminControllers\BoatAdminController@index')->name('adminBoat');
   Route::get('/admin/boat/add', 'AdminControllers\BoatAdminController@addBoatView')->name('adminBoat.add');
   Route::get('/admin/boat/update/{boatId}', 'AdminControllers\BoatAdminController@getBoat')->name('adminBoat.update');
   Route::post('/admin/boat/update/{boatId}', 'AdminControllers\BoatAdminController@updateBoat');
@@ -37,8 +40,7 @@ Route::group(['middleware' => 'under-construction'], function () {
   Route::post('/admin/boat/addCrew/{boatId}/{crewId}', 'AdminControllers\BoatAdminController@addCrew')->name('adminBoat.addCrew');
   Route::get('/admin/boat/removeCrew/{boatId}/{crewId}', 'AdminControllers\BoatAdminController@removeCrew')->name('adminBoat.removeCrew');
 
-  //Crew Routing
-  Route::get('/admin/crew', 'AdminControllers\CrewAdminController@index')->name('adminCrew');
+  //Crew Routing endm
   Route::get('/admin/crew/add', 'AdminControllers\CrewAdminController@addCrewView')->name('adminCrew.add');
   Route::get('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@getCrew')->name('adminCrew.update');
   Route::post('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@updateCrew');
@@ -48,8 +50,5 @@ Route::group(['middleware' => 'under-construction'], function () {
   //Regate Routing
   Route::get('/admin/regate', 'AdminControllers\RegateAdminController@index')->name('regateAdmin');
   Route::post('/admin/regate/update/{regateId}', 'AdminControllers\RegateAdminController@updateRegate')->name('regateAdmin.update');
-  // Route::get('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@getCrew')->name('adminCrew.update');
-  // Route::post('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@updateCrew');
-  // Route::post('/admin/crew/add', 'AdminControllers\CrewAdminController@store');
-  // Route::get('/admin/crew/delete/{crewId}', 'AdminControllers\CrewAdminController@delete');
+
 });

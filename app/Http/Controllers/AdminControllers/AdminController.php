@@ -27,6 +27,13 @@ class AdminController extends Controller
         return view('accueil')->with('regate', $regate);
     }
 
+    public function gestionAdminView()
+    {
+      $boats = DB::table('bateau')->orderBy('nom', 'ASC')->get()->all();
+      $crews = DB::table('equipier')->orderBy('nom', 'ASC')->get()->all();
+      return view('gestionAdmin', compact('boats', 'crews'));
+    }
+
     public function ledOn()
     {
         $setmode17_red = shell_exec("/usr/local/bin/gpio -g mode 17 out");

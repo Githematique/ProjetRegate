@@ -23,8 +23,7 @@
           <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-left">
               <li><a href="/admin/regate">Parametrage de la Regate</a></li>
-              <li><a href="/admin/boat">Gestion des bateaux</a></li>
-              <li><a href="/admin/crew">Gestion des membres</a></li>
+              <li><a href="/admin/gestion">Gestion des participants</a></li>
               <li><a href="/admin/camera">Camera</a></li>
               <li><a href="/admin">Podium</a>
               </li>

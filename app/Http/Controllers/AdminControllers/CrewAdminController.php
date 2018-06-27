@@ -20,17 +20,6 @@ class CrewAdminController extends Controller
 
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      $datas = DB::table('equipier')->orderBy('nom', 'ASC')->get()->all();
-      return view('/crewViews/crewAdmin', compact('datas'));
-    }
-
     public function addCrewView()
     {
       return view('/crewViews/addCrewAdmin');
@@ -52,7 +41,7 @@ class CrewAdminController extends Controller
 
       DB::table('equipier')->insert($inputs);
 
-      return redirect('/admin/crew');
+      return redirect('/admin/gestion');
   }
 
   public function updateCrew(Request $request, $equipier_id){
@@ -65,7 +54,7 @@ class CrewAdminController extends Controller
 
     DB::table('equipier')->where("equipier_id", $equipier_id)->update($inputs);
 
-    return redirect('/admin/crew');
+    return redirect('/admin/gestion');
   }
 
   public function delete($id){
@@ -76,6 +65,6 @@ class CrewAdminController extends Controller
         $crew->delete();
     }
 
-    return redirect('/admin/crew');
+    return redirect('/admin/gestion');
   }
 }

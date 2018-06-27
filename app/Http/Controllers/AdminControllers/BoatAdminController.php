@@ -19,17 +19,6 @@ class BoatAdminController extends Controller
     {
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $datas = DB::table('bateau')->orderBy('nom', 'ASC')->get()->all();
-        return view('/boatViews/boatsAdmin', compact('datas'));
-    }
-
     public function addBoatView()
     {
         return view('/boatViews/addBoatAdmin');
@@ -48,7 +37,7 @@ class BoatAdminController extends Controller
         $inputs['numVoile'] = Input::get('numVoile');
         DB::table('bateau')->insert($inputs);
 
-        return redirect('/admin/boat');
+        return redirect('/admin/gestion');
     }
 
     public function updateBoat(Request $request, $bateau_id)
@@ -58,7 +47,7 @@ class BoatAdminController extends Controller
         $inputs['numVoile'] = Input::get('numVoile');
         DB::table('bateau')->where("bateau_id", $bateau_id)->update($inputs);
 
-        return redirect('/admin/boat');
+        return redirect('/admin/gestion');
     }
 
     public function delete($id)
@@ -67,35 +56,38 @@ class BoatAdminController extends Controller
         if (!is_null($boat)) {
             $boat->delete();
         }
-        return redirect('/admin/boat');
+        return redirect('/admin/gestion');
     }
 
 
     //get page "addCrewToBoat"
+    //Unserializing a string as an array
     public function getBoatAndCrews($id)
     {
         $boat = DB::table('bateau')->where("bateau_id", $id)->first();
-        $serializedArr = unserialize($boat->equipiers);
-
         $crews = DB::table('equipier')->get()->all();
-        if (strlen($boat->equipiers) > 0 && count($serializedArr) >= 1 ) {
-          foreach ($crews as $key => $crew) {
-            foreach ($serializedArr as $crew_id => $equipier) {
-              if ($crew_id == $crew->equipier_id) {
-                unset($crews[$key]);
-                continue;
+        $serializedArr = array();
+        if (!is_null($boat->equipiers) &&  !empty($boat->equipiers)) {
+          $serializedArr = unserialize($boat->equipiers);
+          if (strlen($boat->equipiers) > 0 && count($serializedArr) >= 1 ) {
+            foreach ($crews as $key => $crew) {
+              foreach ($serializedArr as $crew_id => $equipier) {
+                if ($crew_id == $crew->equipier_id) {
+                  unset($crews[$key]);
+                  continue;
+                }
               }
-            }
-            if ($crew->occupe == true) {
-              unset($crews[$key]);
+              if ($crew->occupe == true) {
+                unset($crews[$key]);
+              }
             }
           }
         }
-
         return view('/boatViews/addCrewToBoat',  compact('boat', 'crews'))->with('equipiers', $serializedArr);
     }
 
     //add a crew to boat
+    //Serializing an array to transforms it to a string so we can store it in the DB
     public function addCrew($bateau_id, $equipier_id)
     {
         $crew = DB::table('equipier')->where('equipier_id', $equipier_id)->first();
@@ -121,6 +113,7 @@ class BoatAdminController extends Controller
     }
 
     //remove a crew from boat
+    //Serializing an array to transforms it to a string so we can store it in the DB
     public function removeCrew($bateau_id, $equipier_id)
     {
         $boat = DB::table('bateau')->where("bateau_id", $bateau_id)->first();
