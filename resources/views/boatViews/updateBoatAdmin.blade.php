@@ -4,24 +4,27 @@
 
 @section('content')
 
-<section class="form-container">
-  <form class="boat-form" action="/admin/boat/update/{{ $boat->bateau_id }}" method="post">
+<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 centered">
+  <h1>Modification :</h1>
+  <form class="boat-form" action="/admin/boat/update/{{ $boat->bateau_id }}" method="post" style="margin-top: 20px;">
     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
-      <div class="">
+      <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <label for="serie">Série: </label>
-        <input type="text" name="serie" value="{{ $boat->serie }}" id="serie">
+        <input type="text" class="form-control" name="serie" value="{{ $boat->serie }}" id="serie" required>
       </div>
-      <div class="">
+      <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <label for="name">Nom: </label>
-        <input type="text" name="name" value="{{ $boat->nom }}" id="name">
+        <input type="text" class="form-control" name="name" value="{{ $boat->nom }}" id="name" required>
       </div>
-      <div class="">
+      <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <label for="numVoile">N° de voile: </label>
-        <input type="number" name="numVoile" value="{{ $boat->numVoile }}" id="numVoile">
+        <input type="number" class="form-control" name="numVoile" value="{{ $boat->numVoile }}" id="numVoile" required>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Mettre à jour</button>
+        </div>
       </div>
   </form>
-</section>
+</div>
 @endsection

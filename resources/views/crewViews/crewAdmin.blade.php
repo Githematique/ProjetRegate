@@ -4,38 +4,39 @@
 
 @section('content')
 
-<section class="form-container">
-  <ul class="pager">
-    <li class="previous"><a href="{{ url('/admin/crew/add') }}">Enregistrer un nouveau équipier</a></li>
-  </ul>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Role</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach($datas as $data)
-      <tr>
-        <th>{{ $data->nom }}</th>
-        <th>{{ $data->prenom }}</th>
-        <th>{{ $data->role }}</th>
-        <th>
-          <a href="{{ url('/admin/crew/update/'.$data->equipier_id) }}" class="btn btn-operation btn-primary">
-	             Modifier
-	        </a>
-        </th>
-        <th>
-          <a href="{{ url('/admin/crew/delete/'.$data->equipier_id) }}" class="btn btn-operation btn-danger">
-             Effacer
-          </a>
-        </th>
-
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-</section>
+<div class="container">
+  <h1> LISTE DES EQUIPIERS : </h1>
+  <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 centered">
+    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    </div>
+    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <a class="btn btn-info" href="{{ url('/admin/crew/add') }}" role="button"> Ajouter un nouvel équiper</a>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>Nom</td>
+          <td>Prénom</td>
+          <td>Role</td>
+          <td class="text-right">Actions</td>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($datas as $data)
+        <tr>
+          <td>{{ $data->nom }}</td>
+          <td>{{ $data->prenom }}</td>
+          <td>{{ $data->role }}</td>
+          <td class="text-right">
+            <a href="{{ url('/admin/crew/update/'.$data->equipier_id) }}" title='Editer'><i class="fa fa-edit"></i> 
+  	        </a>
+            <a href="{{ url('/admin/crew/delete/'.$data->equipier_id) }}" title='Supprimer' style="margin-left: 20px;"><i class="fa fa-trash" style="color: #ff0000;"></i> 
+            </a>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+</div>
 @endsection
