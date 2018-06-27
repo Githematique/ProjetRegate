@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
+use DB;
 
 class AdminController extends Controller
 {
@@ -23,6 +24,13 @@ class AdminController extends Controller
     public function index()
     {
         return view('accueil');
+    }
+
+    public function gestionAdminView()
+    {
+      $boats = DB::table('bateau')->orderBy('nom', 'ASC')->get()->all();
+      $crews = DB::table('equipier')->orderBy('nom', 'ASC')->get()->all();
+      return view('gestionAdmin', compact('boats', 'crews'));
     }
 
     public function ledOn()
