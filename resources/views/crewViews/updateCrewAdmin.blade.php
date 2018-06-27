@@ -28,6 +28,9 @@
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
       </div>
     </div>
+      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <a class="btn btn-info" href="{{ url('/admin/gestion') }}" role="button"> Annuler</a>
+    </div>
   </form>
 </div>
 @endsection

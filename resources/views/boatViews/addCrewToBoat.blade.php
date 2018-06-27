@@ -23,7 +23,7 @@
             @if (strlen($boat->equipiers) > 0 && count($equipiers) >= 1 )
             <strong>Equipiers </strong>:
             @foreach ( $equipiers as $key => $equipier)
-            <div class="">
+            <div class="form-group">
               <form class="" action="/admin/boat/removeCrew/{{ $boat->bateau_id }}/{{ $key }}" method="get">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}" />
                 <label for="">{{$equipier }}</label>
@@ -31,8 +31,12 @@
               </form>
 
             </div>
+
             @endforeach
-            @endif
+            @endif  
+            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <a class="btn btn-info" href="{{ url('/admin/gestion') }}" role="button"> Enregistrer / Retour</a>
+      </div>
           </div>
         </div>
       </div>
@@ -46,7 +50,7 @@
           @if (!is_null($crews))
             @foreach ($crews as $index => $crew)
               @if ($crew->occupe == false)
-                <div class="">
+                <div class="form-group">
                   <form class="" action="/admin/boat/addCrew/{{ $boat->bateau_id }}/{{ $crew->equipier_id }}" method="post">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
                     <input type="text" name="firstName" id="firstName" value="{{ $crew->nom }}">
