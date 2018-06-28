@@ -54,4 +54,11 @@ class RegateAdminController extends Controller
       
     }
 
+    public function updateEndTimeRegate(Request $request) {
+     
+        $heure_arr = $request->heure_arr; 
+        DB::table('regate')->update(['heure_arr' => $heure_arr]);
+      
+    }
+
 }

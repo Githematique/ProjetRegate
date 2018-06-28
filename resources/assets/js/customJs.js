@@ -9,16 +9,30 @@
 //         alert('Date stored');
 //     });
 
+// $.ajax({
+//     type: "POST",
+//     url: '/admin/regate/setStartTime',
+//     data: {
+//      heure_dep: heure_dep
+//     },
+//     headers: {
+//       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     },
+//     success: function() {
+//       console.log("Start Hour added");
+//     }
+//   });
+
 $.ajax({
     type: "POST",
-    url: '/admin/regate/setStartTime',
+    url: '/admin/regate/setEndTime',
     data: {
-     heure_dep: heure_dep
+     heure_arr: heure_arr
     },
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     },
     success: function() {
-      console.log("Hour added");
+      console.log("End Hour added");
     }
   });

@@ -101,6 +101,7 @@
     document.getElementById("annulation").classList.remove("hide");
     document.getElementById("modification").classList.remove("hide");
   }else if (test == 'arrivee') {
+    var heure_arr = new Date().toLocaleTimeString();
     document.getElementById("apercu").classList.remove("hide");
     document.getElementById("depart").classList.remove("hide");
     document.getElementById("rappel_g").classList.add("hide");
