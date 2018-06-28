@@ -84,7 +84,7 @@ class BoatAdminController extends Controller
                   continue;
                 }
               }
-              if ($crew->occupe == true) {
+              if (!is_null($crew->id_bateau) && $crew->id_bateau > 0) {
                 unset($crews[$key]);
               }
             }
@@ -99,7 +99,7 @@ class BoatAdminController extends Controller
     {
         $crew = DB::table('equipier')->where('equipier_id', $equipier_id)->first();
 
-        if($crew->occupe == true) {
+        if(!is_null($crew->id_bateau) && $crew->id_bateau > 0) {
           return null;
         }
 
@@ -115,7 +115,7 @@ class BoatAdminController extends Controller
           $serializedArr = serialize($newArray);
           DB::table('bateau')->where("bateau_id", $bateau_id)->update(['equipiers' => $serializedArr]);
         }
-        DB::table('equipier')->where('equipier_id', $equipier_id)->update(['occupe' => true]);
+        DB::table('equipier')->where('equipier_id', $equipier_id)->update(['id_bateau' => $bateau_id]);
         return redirect()->route('adminBoat.addCrewView', ['boatId' => $bateau_id]);
     }
 
@@ -128,7 +128,7 @@ class BoatAdminController extends Controller
         foreach ($listOfCrew as $key => $crew) {
           if ($key == $equipier_id) {
             unset($listOfCrew[$key]);
-            DB::table('equipier')->where('equipier_id', $equipier_id)->update(['occupe' => false]);
+            DB::table('equipier')->where('equipier_id', $equipier_id)->update(['id_bateau' => 0]);
             break;
           }
         }

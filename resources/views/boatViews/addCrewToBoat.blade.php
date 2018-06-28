@@ -31,7 +31,7 @@
               </form>
             </div>
             @endforeach
-            @endif  
+            @endif
             <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
         <a class="btn btn-info" href="{{ url('/admin/gestion') }}" role="button"> Enregistrer / Retour</a>
       </div>
@@ -47,7 +47,7 @@
         <div class="crews-container">
           @if (!is_null($crews))
             @foreach ($crews as $index => $crew)
-              @if ($crew->occupe == false)
+              @if (!is_null($crew->id_bateau) && $crew->id_bateau == 0)
                 <div class="form-group">
                   <form class="" action="/admin/boat/addCrew/{{ $boat->bateau_id }}/{{ $crew->equipier_id }}" method="post">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}" />

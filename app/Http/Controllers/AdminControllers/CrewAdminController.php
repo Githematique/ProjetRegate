@@ -59,12 +59,24 @@ class CrewAdminController extends Controller
 
   public function delete($id){
 
-    $crew = \DB::table('equipier')->where('equipier_id', '=', $id);
+    $crewQuery = \DB::table('equipier')->where('equipier_id', '=', $id);
 
-     if (!is_null($crew)) {
-        $crew->delete();
+    $crew = DB::table('equipier')->where('equipier_id', $id)->first();
+    $boat = DB::table('bateau')->where("bateau_id", $crew->id_bateau)->first();
+    $listOfCrew = unserialize($boat->equipiers);
+    foreach ($listOfCrew as $key => $boatCrew) {
+      if ($key == $id) {
+        unset($listOfCrew[$key]);
+        break;
+      }
     }
+    $serializedArr = serialize($listOfCrew);
+    DB::table('bateau')->where("bateau_id", $crew->id_bateau)->update(['equipiers' => $serializedArr]);
 
+     if (!is_null($crewQuery)) {
+        $crewQuery->delete();
+    }
+    //
     return redirect('/admin/gestion');
   }
 }
