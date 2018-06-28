@@ -60,6 +60,7 @@
             <td>Nom</td>
             <td>Prénom</td>
             <td>Role</td>
+            <td>Bateau</td>
             <td class="text-right">Actions</td>
           </tr>
         </thead>
@@ -69,6 +70,15 @@
             <td>{{ $crew->nom }}</td>
             <td>{{ $crew->prenom }}</td>
             <td>{{ $crew->role }}</td>
+            <td>
+              @foreach ($boats as $key => $boat)
+                @if ($boat->bateau_id == $crew->id_bateau)
+                  <a href="{{ url('/admin/boat/addCrew/'.$crew->id_bateau) }}">
+                    {{$boat->nom}}
+                  </a>
+                @endif
+              @endforeach
+            </td>
             <td class="text-right">
               <a href="{{ url('/admin/crew/update/'.$crew->equipier_id) }}" title='Editer'><i class="fa fa-edit"></i>
     	        </a>
