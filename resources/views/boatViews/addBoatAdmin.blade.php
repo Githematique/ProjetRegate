@@ -21,7 +21,7 @@
         <input type="number" class="form-control" name="numVoile" value="" id="numVoile" required>
       </div>
       <div class="form-group col-xs-3 col-sm-3 col-md-3  col-lg-3">
-        <label for="numVoile">Handicap : </label>
+        <label for="numVoile">Handicap (en %) : </label>
         <input type="float" class="form-control" name="coefficient" value="" id="coefficient" required>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
