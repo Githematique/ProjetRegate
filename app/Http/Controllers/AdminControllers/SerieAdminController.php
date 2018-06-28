@@ -50,10 +50,13 @@ class SerieAdminController extends Controller
 
     public function delete($id)
     {
-        $serie = \DB::table('seriebateau')->where('id', '=', $id);
-        if (!is_null($serie)) {
-            $serie->delete();
+        $serieQuery = \DB::table('seriebateau')->where('id', '=', $id);
+        $serie = \DB::table('seriebateau')->where('id', '=', $id)->first();
+        if (!is_null($serieQuery) && !is_null($serie)) {
+            DB::table('bateau')->where('serie', '=', $serie->type)->update(['serie' => '', 'coefficient' => 1]);
+            $serieQuery->delete();
         }
+
         return redirect('/admin/gestion');
     }
 }

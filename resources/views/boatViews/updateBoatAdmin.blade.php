@@ -25,7 +25,7 @@
         <input type="number" class="form-control" name="numVoile" value="{{ $boat->numVoile }}" id="numVoile" required>
       </div>
       <div class="form-group col-xs-3 col-sm-3 col-md-3  col-lg-3">
-        <label for="coefficient">Handicap (en %): </label>
+        <label for="coefficient">Handicap: </label>
         <input type="float" class="form-control" name="coefficient" value="{{ $boat->coefficient }}" id="coefficient" required>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
