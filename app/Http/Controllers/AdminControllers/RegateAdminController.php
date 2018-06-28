@@ -47,4 +47,11 @@ class RegateAdminController extends Controller
       return redirect('/admin/regate');
     }
 
+    public function updateStartTimeRegate(Request $request) {
+     
+        $heure_dep = $request->heure_dep; 
+        DB::table('regate')->update(['heure_dep' => $heure_dep]);
+      
+    }
+
 }

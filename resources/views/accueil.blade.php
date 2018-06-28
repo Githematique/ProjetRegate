@@ -54,7 +54,22 @@
 <script type="text/javascript">
   var test = '{!! $regate->etape !!}';
   console.log(test);
-  if (test == 'depart') {
+  if (test == 'apercu') {
+    document.getElementById("led2").style.background = '#3399ff';
+    document.getElementById("led3").style.background = '#ff9900';
+    document.getElementById("grandSon").style.color = '#ff0000';
+    document.getElementById("apercu").classList.remove("hide");
+    document.getElementById("depart").classList.remove("hide");
+    document.getElementById("rappel_g").classList.add("hide");
+    document.getElementById("rappel_i").classList.add("hide");
+    document.getElementById("arrivee").classList.add("hide");
+    document.getElementById("annulation").classList.add("hide");
+    document.getElementById("modification").classList.add("hide");
+  }else if (test == 'depart'){
+    var heure_dep = new Date().toLocaleTimeString();
+    document.getElementById("led1").style.background = '#ff0000';
+    document.getElementById("led3").style.background = '#ff9900';
+    document.getElementById("grandSon").style.color = '#ff0000';
     document.getElementById("apercu").classList.add("hide");
     document.getElementById("depart").classList.add("hide");
     document.getElementById("rappel_g").classList.remove("hide");
@@ -62,7 +77,10 @@
     document.getElementById("arrivee").classList.remove("hide");
     document.getElementById("annulation").classList.remove("hide");
     document.getElementById("modification").classList.remove("hide");
-  } else if ((test == 'rappel_g') || (test == 'rappel_i') || (test == 'modification')) {
+  }else if (test == 'rappel_i') {
+    document.getElementById("led2").style.background = '#0066ff';
+    document.getElementById("led3").style.background = '#ff9900';
+    document.getElementById("grandSon").style.color = '#ff0000';
     document.getElementById("apercu").classList.add("hide");
     document.getElementById("depart").classList.add("hide");
     document.getElementById("rappel_g").classList.remove("hide");
@@ -70,7 +88,45 @@
     document.getElementById("arrivee").classList.remove("hide");
     document.getElementById("annulation").classList.remove("hide");
     document.getElementById("modification").classList.remove("hide");
-  }else {
+  }else if (test == 'rappel_g') {
+    document.getElementById("led1").style.background = '#ff0000';
+    document.getElementById("led2").style.background = '#0066ff';
+    document.getElementById("petitSon").style.color = '#ff0000';
+    document.getElementById("grandSon").style.color = '#ff0000';
+    document.getElementById("apercu").classList.add("hide");
+    document.getElementById("depart").classList.add("hide");
+    document.getElementById("rappel_g").classList.remove("hide");
+    document.getElementById("rappel_i").classList.remove("hide");
+    document.getElementById("arrivee").classList.remove("hide");
+    document.getElementById("annulation").classList.remove("hide");
+    document.getElementById("modification").classList.remove("hide");
+  }else if (test == 'arrivee') {
+    document.getElementById("apercu").classList.remove("hide");
+    document.getElementById("depart").classList.remove("hide");
+    document.getElementById("rappel_g").classList.add("hide");
+    document.getElementById("rappel_i").classList.add("hide");
+    document.getElementById("arrivee").classList.add("hide");
+    document.getElementById("annulation").classList.add("hide");
+    document.getElementById("modification").classList.add("hide");
+  }else if (test == 'annulation') {
+    document.getElementById("led1").style.background = '#ff0000';
+    document.getElementById("led2").style.background = '#0066ff';
+    document.getElementById("led3").style.background = '#ff9900';
+    document.getElementById("petitSon").style.color = '#ff0000';
+    document.getElementById("grandSon").style.color = '#ff0000';
+    document.getElementById("apercu").classList.remove("hide");
+    document.getElementById("depart").classList.remove("hide");
+    document.getElementById("rappel_g").classList.add("hide");
+    document.getElementById("rappel_i").classList.add("hide");
+    document.getElementById("arrivee").classList.add("hide");
+    document.getElementById("annulation").classList.add("hide");
+    document.getElementById("modification").classList.add("hide");
+  }else if (test == 'modification') {
+        document.getElementById("led1").style.background = '#ff0000';
+    document.getElementById("led2").style.background = '#0066ff';
+    document.getElementById("led3").style.background = '#ff9900';
+    document.getElementById("petitSon").style.color = '#ff0000';
+    document.getElementById("grandSon").style.color = '#ff0000';
     document.getElementById("apercu").classList.remove("hide");
     document.getElementById("depart").classList.remove("hide");
     document.getElementById("rappel_g").classList.add("hide");
