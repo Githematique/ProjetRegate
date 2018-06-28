@@ -1,3 +1,4 @@
+
 [2018-06-05 12:49:46] production.ERROR: The C:\Users\YING\Documents\LPDW-Projects\regateTest\ProjetRegate\bootstrap/cache directory must be present and writable. {"exception":"[object] (Exception(code: 0): The C:\\Users\\YING\\Documents\\LPDW-Projects\egateTest\\ProjetRegate\\bootstrap/cache directory must be present and writable. at C:\\Users\\YING\\Documents\\LPDW-Projects\egateTest\\ProjetRegate\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php:165)
 [stacktrace]
 #0 C:\\Users\\YING\\Documents\\LPDW-Projects\egateTest\\ProjetRegate\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(125): Illuminate\\Foundation\\PackageManifest->write(Array)
@@ -1940,3 +1941,4 @@
 #55 /home/pi/ProjetRegate/server.php(21): require_once('/home/pi/Projet...')
 #56 {main}
 "} 
+

@@ -16,13 +16,16 @@
     <body>
       <nav id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
-          <div class="navbar-header"><a class="navbar-brand" href="#home"><i class="far fa-life-ring"></i> Projet Régate</a>
+          <div class="navbar-header"><a class="navbar-brand" href="/"><i class="far fa-life-ring"></i> Projet Régate</a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
           </div>
           <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="boatAdmin">Administration <i class="fas fa-cogs"></i></a>
+            <ul class="nav navbar-nav navbar-left">
+              <li><a href="/admin/regate">Parametrage de la Regate</a></li>
+              <li><a href="/admin/gestion">Gestion des participants</a></li>
+              <li><a href="/admin/camera">Camera</a></li>
+              <li><a href="/admin">Podium</a>
               </li>
             </ul>
           </div>

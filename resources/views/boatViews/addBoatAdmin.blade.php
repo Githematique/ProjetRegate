@@ -1,27 +1,37 @@
-@extends('header')
+@extends('Header')
 
 @section('title', 'BoatAdmin')
 
 @section('content')
 
-<section class="form-container">
-  <form class="boat-form" action="/admin/boat/add" method="post">
+<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 centered">
+  <h1>Ajout d'un nouveau bateau :</h1>
+  <form class="boat-form" action="/admin/boat/add" method="post" style="margin-top: 20px;">
     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
-      <div class="">
+      <div class="form-group col-xs-3 col-sm-3 col-md-3  col-lg-3">
         <label for="serie">Série: </label>
-        <input type="text" name="serie" value="" id="serie">
+        <input type="text" class="form-control" name="serie" value="" id="serie" required>
       </div>
-      <div class="">
-        <label for="name">Noom: </label>
-        <input type="text" name="name" value="" id="name">
+      <div class="form-group col-xs-3 col-sm-3 col-md-3  col-lg-3">
+        <label for="name">Nom: </label>
+        <input type="text" class="form-control" name="name" value="" id="name" required>
       </div>
-      <div class="">
+      <div class="form-group col-xs-3 col-sm-3 col-md-3  col-lg-3">
         <label for="numVoile">N° de voile: </label>
-        <input type="number" name="numVoile" value="" id="numVoile">
+        <input type="number" class="form-control" name="numVoile" value="" id="numVoile" required>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Ajouter une actu</button>
+      <div class="form-group col-xs-3 col-sm-3 col-md-3  col-lg-3">
+        <label for="numVoile">Handicap : </label>
+        <input type="float" class="form-control" name="coefficient" value="" id="coefficient" required>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Ajouter un bateau</button>
+        </div>
+      </div>
+      <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <a class="btn btn-info" href="{{ url('/admin/gestion') }}" role="button"> Annuler</a>
       </div>
   </form>
-</section>
+</div>
 @endsection
