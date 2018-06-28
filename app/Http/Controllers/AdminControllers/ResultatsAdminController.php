@@ -24,9 +24,15 @@ class ResultatsAdminController extends Controller
      */
     public function index()
     {
-      $datas = DB::table('bateau')->orderBy('nom', 'ASC')->get()->all();
+      $regate = DB::table('regate')->get()->first();
+      $currentBoats = array();
+      if (!is_null($regate->bateaux) &&strlen($regate->bateaux)) {
+        $currentBoats = unserialize($regate->bateaux);
+      }
+      $datas = DB::table('bateau')->whereIn('bateau_id', $currentBoats)->get()->all();
       return view('resultatsAdmin', compact('datas'));
     }
+
     public function store(Request $request) {
       $inputs['nom'] = Input::get('name');
       DB::table('bateau')->insert($inputs);

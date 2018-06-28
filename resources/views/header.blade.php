@@ -12,6 +12,8 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <script type="text/javascript" src="{{ URL::asset('js/vendor.js') }}"></script>
     </head>
     <body>
       <nav id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -37,7 +39,7 @@
       @yield('content')
     </main>
 
-      <script type="text/javascript" src="{{ URL::asset('js/vendor.js') }}"></script>
+
       <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
     </body>
 </html>
