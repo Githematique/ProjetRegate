@@ -5,9 +5,6 @@
 @section('content')
 
   <div class="container">
-    <div class="blockStatus col-6 text-center">
-      <img class="gif" src="https://media.giphy.com/media/3o7aCVTfelG4XSbv3y/giphy.gif" alt="gif">
-    </div>
 
     <div class="col-6">
       <div class="panel panel-default">

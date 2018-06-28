@@ -56,7 +56,7 @@ class AdminController extends Controller
 		$gpio_buzzer_off = shell_exec("/usr/local/bin/gpio -g write 2 0");
 		sleep(48);
 		for($x = 1; $x <= 10; $x++){
-                	$gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
+                	$gpio_buzzer_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
 			sleep(0.5);
 			$gpio_buzzer_off = shell_exec("/usr/local/bin/gpio -g write 2 0");
 			sleep(0.5);
@@ -163,7 +163,7 @@ class AdminController extends Controller
 		}
 		$gpio_blue_on = shell_exec("/usr/local/bin/gpio -g write 27 1");
 		$gpio_orange_on = shell_exec("/usr/local/bin/gpio -g write 22 1");
-		$gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
+		$gpio_red_on = shell_exec("/usr/local/bin/gpio -g write 17 1");
 		for($x = 1; $x <= 3; $x++){
                 	$gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
 			sleep(2);
