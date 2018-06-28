@@ -31,7 +31,8 @@ class AdminController extends Controller
     {
       $boats = DB::table('bateau')->orderBy('nom', 'ASC')->get()->all();
       $crews = DB::table('equipier')->orderBy('nom', 'ASC')->get()->all();
-      return view('gestionAdmin', compact('boats', 'crews'));
+      $series = DB::table('seriebateau')->orderBy('type', 'ASC')->get()->all();
+      return view('gestionAdmin', compact('boats', 'crews', 'series'));
     }
 
     public function ledOn()

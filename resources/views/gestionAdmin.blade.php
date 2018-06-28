@@ -84,4 +84,42 @@
 </div>
 </div>
 
+<div class="row text-center">
+
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">LISTE DES SERIES : </div>
+        <div class="panel-body">
+      <div class="form-group">
+      <a class="btn btn-info" href="{{ url('/admin/serie/add') }}" role="button">Ajouter une nouvelle serie</a>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>Type</td>
+          <td>Coefficent</td>
+          <td class="text-right">Actions</td>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($series as $serie)
+        <tr>
+          <td>{{ $serie->type }}</td>
+          <td>{{ $serie->coeff }}</td>
+          <td class="text-right">
+            <a href="{{ url('/admin/serie/update/'.$serie->id) }}" title='Editer'><i class="fa fa-edit"></i>
+  	        </a>
+            <a href="{{ url('/admin/serie/delete/'.$serie->id) }}" title='Supprimer' style="margin-left: 20px;"><i class="fa fa-trash" style="color: #ff0000;"></i>
+            </a>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+    </div>
+    </div>
+  </div>
+
+</div>
+
 @endsection
