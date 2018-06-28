@@ -174,6 +174,7 @@ class AdminController extends Controller
             DB::table('regate')->update(['etape' => 'modification']);
         }
 
+
         if (isset($_GET['annulation'])) {
 
             DB::table('regate')->update(['etape' => 'annulation']);
@@ -191,6 +192,7 @@ class AdminController extends Controller
                 sleep(2);
                 $gpio_buzzer_off = shell_exec("/usr/local/bin/gpio -g write 2 0");
             }
+
         }
 
         return redirect('/');
