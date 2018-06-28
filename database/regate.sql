@@ -100,6 +100,28 @@ CREATE TABLE `regate` (
 INSERT INTO `regate` (`regate_id`, `nom`, `date`, `club`, `ligue`, `jury`, `comiteDeCourse`, `securite`, `officierDeJour`, `etape`, `heure_dep`, `heure_arr`) VALUES
 (1, 'Oui', '2018-06-26', 'Barcelone', 'Europa', 'Jean, guillaume', 'Pierre', 'Jean', 'CHarles', '0', NULL, NULL);
 
+
+--
+-- Structure de la table `seriebateau`
+--
+DROP TABLE IF EXISTS `seriebateau`;
+CREATE TABLE IF NOT EXISTS `seriebateau` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+  `coeff` float NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `seriebateau`
+--
+
+INSERT INTO `seriebateau` (`id`, `type`, `coeff`) VALUES
+(1, 'XLM52', 2.1),
+(3, 'Jolie morgane', 1.5);
+COMMIT;
+
 -- --------------------------------------------------------
 
 --

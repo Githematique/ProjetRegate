@@ -40,12 +40,19 @@ Route::group(['middleware' => 'under-construction'], function () {
   Route::post('/admin/boat/addCrew/{boatId}/{crewId}', 'AdminControllers\BoatAdminController@addCrew')->name('adminBoat.addCrew');
   Route::get('/admin/boat/removeCrew/{boatId}/{crewId}', 'AdminControllers\BoatAdminController@removeCrew')->name('adminBoat.removeCrew');
 
-  //Crew Routing endm
+  //Crew Routing
   Route::get('/admin/crew/add', 'AdminControllers\CrewAdminController@addCrewView')->name('adminCrew.add');
   Route::get('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@getCrew')->name('adminCrew.update');
   Route::post('/admin/crew/update/{crewId}', 'AdminControllers\CrewAdminController@updateCrew');
   Route::post('/admin/crew/add', 'AdminControllers\CrewAdminController@store');
   Route::get('/admin/crew/delete/{crewId}', 'AdminControllers\CrewAdminController@delete');
+
+  //Serie Routing
+  Route::get('/admin/serie/add', 'AdminControllers\SerieAdminController@addSerieView')->name('adminSerie.add');
+  Route::get('/admin/serie/update/{serieId}', 'AdminControllers\SerieAdminController@getSerieView')->name('adminSerie.update');
+  Route::post('/admin/serie/add', 'AdminControllers\SerieAdminController@store');
+  Route::post('/admin/serie/update/{serieId}', 'AdminControllers\SerieAdminController@updateSerie');
+  Route::get('/admin/serie/delete/{serieId}', 'AdminControllers\SerieAdminController@delete');
 
   //Regate Routing
   Route::get('/admin/regate', 'AdminControllers\RegateAdminController@index')->name('regateAdmin');

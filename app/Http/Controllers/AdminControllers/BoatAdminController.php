@@ -21,20 +21,25 @@ class BoatAdminController extends Controller
 
     public function addBoatView()
     {
-        return view('/boatViews/addBoatAdmin');
+        $series = DB::table('seriebateau')->get()->all();
+        return view('/boatViews/addBoatAdmin', compact('series'));
     }
 
     public function getBoat($bateau_id)
     {
         $boat = DB::table('bateau')->where("bateau_id", $bateau_id)->first();
-        return view('/boatViews/updateBoatAdmin', compact('boat'));
+        $series = DB::table('seriebateau')->get()->all();
+        return view('/boatViews/updateBoatAdmin', compact('boat', 'series'));
     }
 
     public function store(Request $request)
     {
-        $inputs['serie'] = Input::get('serie');
+        $inputs['serie'] = $request->input('serie');
+        $serie = DB::table('seriebateau')->where("type", $inputs['serie'])->first();
+        $inputs['coefficient'] = $serie->coeff;
         $inputs['nom'] = Input::get('name');
         $inputs['numVoile'] = Input::get('numVoile');
+
         DB::table('bateau')->insert($inputs);
 
         return redirect('/admin/gestion');
@@ -42,7 +47,9 @@ class BoatAdminController extends Controller
 
     public function updateBoat(Request $request, $bateau_id)
     {
-        $inputs['serie'] = Input::get('serie');
+        $inputs['serie'] =  $request->input('serie');
+        $serie = DB::table('seriebateau')->where("type", $inputs['serie'])->first();
+        $inputs['coefficient'] = $serie->coeff;
         $inputs['nom'] = Input::get('name');
         $inputs['numVoile'] = Input::get('numVoile');
         DB::table('bateau')->where("bateau_id", $bateau_id)->update($inputs);
