@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 28 juin 2018 à 13:23
+-- Généré le :  jeu. 28 juin 2018 à 22:18
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -47,7 +47,7 @@ INSERT INTO `bateau` (`bateau_id`, `serie`, `nom`, `numVoile`, `equipiers`, `coe
 (9, '', 'Qixin', 112, 'a:0:{}', 1),
 (13, '', 'tgfcgfdgh', 5659, '', 1),
 (12, '', 'trrr', 65, 'a:0:{}', 1),
-(14, '', 'Morgane', 123, 'a:1:{i:4;s:19:\"Suliman Abdergadeir\";}', 1),
+(14, '', 'Morgane', 123, 'a:0:{}', 1),
 (16, '', 'XlmTEST', 44, 'a:0:{}', 1);
 
 -- --------------------------------------------------------
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `equipier` (
 --
 
 INSERT INTO `equipier` (`equipier_id`, `nom`, `prenom`, `role`, `id_bateau`) VALUES
-(4, 'Abdergadeir', 'Suliman', 'Voilier', 14);
+(4, 'Abdergadeir', 'Suliman', 'Voilier', 0);
 
 -- --------------------------------------------------------
 
@@ -98,15 +98,16 @@ CREATE TABLE IF NOT EXISTS `regate` (
   `regate_id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `date` date NOT NULL,
-  `club` varchar(255) NOT NULL,
-  `ligue` varchar(255) NOT NULL,
-  `jury` varchar(255) NOT NULL,
-  `comiteDeCourse` varchar(255) NOT NULL,
-  `securite` varchar(255) NOT NULL,
-  `officierDeJour` varchar(255) NOT NULL,
+  `club` varchar(255) DEFAULT NULL,
+  `ligue` varchar(255) DEFAULT NULL,
+  `jury` varchar(255) DEFAULT NULL,
+  `comiteDeCourse` varchar(255) DEFAULT NULL,
+  `securite` varchar(255) DEFAULT NULL,
+  `officierDeJour` varchar(255) DEFAULT NULL,
   `etape` varchar(255) NOT NULL DEFAULT '0',
   `heure_dep` time DEFAULT NULL,
   `heure_arr` time DEFAULT NULL,
+  `bateaux` text NOT NULL,
   PRIMARY KEY (`regate_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -114,8 +115,8 @@ CREATE TABLE IF NOT EXISTS `regate` (
 -- Déchargement des données de la table `regate`
 --
 
-INSERT INTO `regate` (`regate_id`, `nom`, `date`, `club`, `ligue`, `jury`, `comiteDeCourse`, `securite`, `officierDeJour`, `etape`, `heure_dep`, `heure_arr`) VALUES
-(1, 'Oui', '2018-06-26', 'Barcelone', 'Europa', 'Jean, guillaume', 'Pierre', 'Jean', 'CHarles', '0', NULL, NULL);
+INSERT INTO `regate` (`regate_id`, `nom`, `date`, `club`, `ligue`, `jury`, `comiteDeCourse`, `securite`, `officierDeJour`, `etape`, `heure_dep`, `heure_arr`, `bateaux`) VALUES
+(1, 'Oui', '2018-06-26', 'Barcelone', 'Europa', 'Jean, guillaume', 'Pierre', NULL, 'CHarles', '0', NULL, NULL, '');
 
 -- --------------------------------------------------------
 
