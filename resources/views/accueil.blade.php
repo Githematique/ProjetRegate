@@ -66,6 +66,7 @@
     document.getElementById("annulation").classList.add("hide");
     document.getElementById("modification").classList.add("hide");
   }else if (test == 'depart'){
+    var heure_dep = new Date().toLocaleTimeString();
     document.getElementById("led1").style.background = '#ff0000';
     document.getElementById("led3").style.background = '#ff9900';
     document.getElementById("grandSon").style.color = '#ff0000';
