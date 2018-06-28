@@ -173,6 +173,10 @@ class AdminController extends Controller
 
             DB::table('regate')->update(['etape' => 'modification']);
         }
+        if (isset($_GET['arrivee'])) {
+
+            DB::table('regate')->update(['etape' => 'terminee']);
+        }
 
 
         if (isset($_GET['annulation'])) {

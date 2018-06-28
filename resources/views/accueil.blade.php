@@ -5,6 +5,9 @@
 @section('content')
 
   <div class="container">
+    <div class="blockStatus col-6 text-center">
+<!--       <img class="gif" src="https://media.giphy.com/media/3o7aCVTfelG4XSbv3y/giphy.gif" alt="gif">
+ -->    </div>
 
     <div class="col-6">
       <div class="panel panel-default">
@@ -35,6 +38,9 @@
 	    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	      <button id="rappel_i" type="submit" class="btn rappel_i hide" name="rappel_i">Rappel </br>individuel</button>
 	    </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <button id="arrivee" type="submit" class="btn arrivee hide" name="arrivee">Arrivée</button>
+      </div>  
 	    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 	      <button id="annulation" type="submit" class="btn annulation hide" name="annulation">Annulation</button>
 	    </div>   
@@ -53,6 +59,7 @@
     document.getElementById("depart").classList.add("hide");
     document.getElementById("rappel_g").classList.remove("hide");
     document.getElementById("rappel_i").classList.remove("hide");
+    document.getElementById("arrivee").classList.remove("hide");
     document.getElementById("annulation").classList.remove("hide");
     document.getElementById("modification").classList.remove("hide");
   } else if ((test == 'rappel_g') || (test == 'rappel_i') || (test == 'modification')) {
@@ -60,6 +67,7 @@
     document.getElementById("depart").classList.add("hide");
     document.getElementById("rappel_g").classList.remove("hide");
     document.getElementById("rappel_i").classList.remove("hide");
+    document.getElementById("arrivee").classList.remove("hide");
     document.getElementById("annulation").classList.remove("hide");
     document.getElementById("modification").classList.remove("hide");
   }else {
@@ -67,6 +75,7 @@
     document.getElementById("depart").classList.remove("hide");
     document.getElementById("rappel_g").classList.add("hide");
     document.getElementById("rappel_i").classList.add("hide");
+    document.getElementById("arrivee").classList.add("hide");
     document.getElementById("annulation").classList.add("hide");
     document.getElementById("modification").classList.add("hide");
   }
