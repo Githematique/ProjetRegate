@@ -10,7 +10,11 @@
     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
       <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <label for="serie">Série: </label>
-        <input type="text" class="form-control" name="serie" value="{{ $boat->serie }}" id="serie" required>
+        <select id="serie" class="form-control" name="serie" required>
+          @foreach ($series as $key => $serie)
+            <option value="{{$serie->type}}" {{old('serie',$serie->type) == $boat->serie? 'selected':''}}> {{$serie->type}} </option>
+          @endforeach
+        </select>
       </div>
       <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <label for="name">Nom: </label>
