@@ -51,8 +51,8 @@
                 <div class="form-group">
                   <form class="" action="/admin/boat/addCrew/{{ $boat->bateau_id }}/{{ $crew->equipier_id }}" method="post">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}" />
-                    <input type="text" name="firstName" id="firstName" value="{{ $crew->nom }}">
-                    <input type="text" name="lastName" id="lastName" value="{{ $crew->prenom }}">
+                    <input type="text" name="firstName" id="firstName" value="{{ $crew->nom }}" readonly>
+                    <input type="text" name="lastName" id="lastName" value="{{ $crew->prenom }}" readonly>
                     <input type="submit" name="" value="Ajouter">
                   </form>
                 </div>

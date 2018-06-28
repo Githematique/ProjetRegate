@@ -103,7 +103,7 @@ class BoatAdminController extends Controller
           return null;
         }
 
-        $inputs = array(strval($equipier_id) => Input::get('lastName').' '.Input::get('firstName'));
+        $inputs = array(strval($equipier_id) => $crew->nom.' '.$crew->prenom);
 
         $boat = DB::table('bateau')->where("bateau_id", $bateau_id)->first();
         if (strlen($boat->equipiers) <=0) {

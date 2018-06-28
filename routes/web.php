@@ -57,8 +57,10 @@ Route::group(['middleware' => 'under-construction'], function () {
   //Regate Routing
   Route::get('/admin/regate', 'AdminControllers\RegateAdminController@index')->name('regateAdmin');
   Route::post('/admin/regate/update/{regateId}', 'AdminControllers\RegateAdminController@updateRegate')->name('regateAdmin.update');
-
-
+  Route::get('/admin/regate/addBoat/{boatId}', 'AdminControllers\RegateAdminController@addBoatToRegate')->name('regateAdmin.addBoat');
+  Route::get('/admin/regate/addAllBoat', 'AdminControllers\RegateAdminController@addAllBoatsToRegate')->name('regateAdmin.addAllBoat');
+  Route::get('/admin/regate/removeBoat/{boatId}', 'AdminControllers\RegateAdminController@removeBoatFromRegate')->name('regateAdmin.removeBoat');
+  Route::get('/admin/regate/removeAllBoat', 'AdminControllers\RegateAdminController@removeAllBoatsFromRegate')->name('regateAdmin.removeAllBoat');
 });
   Route::post('/admin/regate/setStartTime', 'AdminControllers\RegateAdminController@updateStartTimeRegate')->name('regateAdmin.updateStartTime');
   Route::post('/admin/regate/setEndTime', 'AdminControllers\RegateAdminController@updateEndTimeRegate')->name('regateAdmin.updateEndTime');

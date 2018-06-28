@@ -29,7 +29,23 @@ class RegateAdminController extends Controller
     {
       $regate = DB::table('regate')->get()->first();
 
-      return view('/regateViews/createRegateAdmin')->with('regate', $regate);
+      $boats = DB::table('bateau')->get()->all();
+      $regateBoats = array();
+      $toBeAddedBoats = $boats;
+      if (!is_null($regate->bateaux) && !empty($regate->bateaux)) {
+        $regateBoats= unserialize($regate->bateaux);
+        if ( count($regateBoats) >= 1 ) {
+          foreach ($regateBoats as $key => $regateBoat) {
+            foreach ($toBeAddedBoats as $index => $boat) {
+              if ($boat->bateau_id == $regateBoat) {
+                unset($toBeAddedBoats[$index]);
+                continue;
+              }
+            }
+          }
+        }
+      }
+      return view('/regateViews/createRegateAdmin',compact('boats', 'regateBoats', 'toBeAddedBoats'))->with('regate', $regate);
     }
 
     public function updateRegate(Request $request, $regate_id) {
@@ -47,18 +63,84 @@ class RegateAdminController extends Controller
       return redirect('/admin/regate');
     }
 
+    public function addBoatToRegate( $bateau_id) {
+
+      $boatsIds = array($bateau_id);
+      $regate = DB::table('regate')->get()->first();
+      if (strlen($regate->bateaux) <=0) {
+        $serializedArr = serialize($boatsIds);
+        DB::table('regate')->update(['bateaux' => $serializedArr]);
+      } else {
+        $listOfBoat = unserialize($regate->bateaux);
+        $newArray = array_merge($listOfBoat,$boatsIds);
+        $serializedArr = serialize($newArray);
+        DB::table('regate')->update(['bateaux' => $serializedArr]);
+      }
+
+      return redirect('/admin/regate');
+    }
+
+
+    public function removeBoatFromRegate( $bateau_id) {
+
+      $boatsIds = array($bateau_id);
+      $regate = DB::table('regate')->get()->first();
+      if (!(strlen($regate->bateaux) <=0)) {
+        $currentListOfBoat = unserialize($regate->bateaux);
+        foreach ($currentListOfBoat as $key => $currentBoat) {
+          if ($currentBoat == $bateau_id) {
+            unset($currentListOfBoat[$key]);
+          }
+        }
+        $serializedArr = serialize($currentListOfBoat);
+        DB::table('regate')->update(['bateaux' => $serializedArr]);
+      }
+
+      return redirect('/admin/regate');
+    }
+
+    //add all Created boats to the current regate
+    //dont add duplicate
+    public function addAllBoatsToRegate() {
+      $regate = DB::table('regate')->get()->first();
+
+      $currentBoats = unserialize($regate->bateaux);
+      if (strlen($regate->bateaux) >0 && count($currentBoats) > 0) {
+        $boatsIds = DB::table('bateau')->whereNotIn('bateau_id', $currentBoats)->pluck('bateau_id')->toArray();
+      } else {
+        $boatsIds = DB::table('bateau')->where('bateau_id', '>', 0)->pluck('bateau_id')->toArray();
+      }
+      if (strlen($regate->bateaux) <=0) {
+        $serializedArr = serialize($boatsIds);
+        DB::table('regate')->update(['bateaux' => $serializedArr]);
+      } else {
+        $listOfBoat = unserialize($regate->bateaux);
+        $newArray = array_merge($listOfBoat,$boatsIds);
+        $serializedArr = serialize($newArray);
+        DB::table('regate')->update(['bateaux' => $serializedArr]);
+      }
+
+      return redirect('/admin/regate');
+    }
+
+    //remove all boats from a regate
+    public function removeAllBoatsFromRegate() {
+      $regate = DB::table('regate')->update(['bateaux' => '']);
+      return redirect('/admin/regate');
+    }
+
     public function updateStartTimeRegate(Request $request) {
-     
-        $heure_dep = $request->heure_dep; 
+
+        $heure_dep = $request->heure_dep;
         DB::table('regate')->update(['heure_dep' => $heure_dep]);
-      
+
     }
 
     public function updateEndTimeRegate(Request $request) {
-     
-        $heure_arr = $request->heure_arr; 
+
+        $heure_arr = $request->heure_arr;
         DB::table('regate')->update(['heure_arr' => $heure_arr]);
-      
+
     }
 
 }
