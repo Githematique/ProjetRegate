@@ -63,13 +63,17 @@ class CrewAdminController extends Controller
 
     $crew = DB::table('equipier')->where('equipier_id', $id)->first();
     $boat = DB::table('bateau')->where("bateau_id", $crew->id_bateau)->first();
-    $listOfCrew = unserialize($boat->equipiers);
-    foreach ($listOfCrew as $key => $boatCrew) {
-      if ($key == $id) {
-        unset($listOfCrew[$key]);
-        break;
+    $listOfCrew = array();
+    if (!is_null($boat) && !is_null($boat->equipiers) && strlen($boat->equipiers) > 0) {
+      $listOfCrew = unserialize($boat->equipiers);
+      foreach ($listOfCrew as $key => $boatCrew) {
+        if ($key == $id) {
+          unset($listOfCrew[$key]);
+          break;
+        }
       }
     }
+
     $serializedArr = serialize($listOfCrew);
     DB::table('bateau')->where("bateau_id", $crew->id_bateau)->update(['equipiers' => $serializedArr]);
 

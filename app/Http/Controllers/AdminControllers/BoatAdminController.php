@@ -60,6 +60,7 @@ class BoatAdminController extends Controller
     public function delete($id)
     {
         $boat = \DB::table('bateau')->where('bateau_id', '=', $id);
+        DB::table('equipier')->where('bateau_id', '=', $id)->update(['id_bateau' => 0]);
         if (!is_null($boat)) {
             $boat->delete();
         }
@@ -141,12 +142,22 @@ class BoatAdminController extends Controller
     //Set the time of the boat for the current regate
     public function setTime(Request $request, $bateau_id)
     {
-      $time = $request->time;
-      echo $request;
+      $coeff = DB::table('bateau')->where('bateau_id', $bateau_id)->value('coefficient');
+      $time = gmdate("H:i:s", ($request->timeSeconds*$coeff));
+      echo $time;
       if (!is_null($time)) {
         DB::table('bateau')->where('bateau_id', $bateau_id)->update(['temps' => $time]);
         return 'true';
       }
       abort(400, 'No time found');
+    }
+
+    //Set the time of the boat for the current regate
+    public function resetTime($bateau_id)
+    {
+
+      DB::table('bateau')->where('bateau_id', $bateau_id)->update(['temps' => null]);
+
+      return redirect()->route('resultats');
     }
 }

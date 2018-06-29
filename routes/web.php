@@ -36,6 +36,7 @@ Route::group(['middleware' => 'under-construction'], function () {
   Route::post('/admin/boat/add', 'AdminControllers\BoatAdminController@store');
   Route::get('/admin/boat/delete/{boatId}', 'AdminControllers\BoatAdminController@delete');
   Route::post('/admin/boat/setTime/{boatId}', 'AdminControllers\BoatAdminController@setTime');
+  Route::get('/admin/boat/resetTime/{boatId}', 'AdminControllers\BoatAdminController@resetTime');
   // add crew to boat routing
   Route::get('/admin/boat/addCrew/{boatId}', 'AdminControllers\BoatAdminController@getBoatAndCrews')->name('adminBoat.addCrewView');
   Route::post('/admin/boat/addCrew/{boatId}/{crewId}', 'AdminControllers\BoatAdminController@addCrew')->name('adminBoat.addCrew');

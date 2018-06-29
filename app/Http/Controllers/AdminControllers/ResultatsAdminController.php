@@ -30,7 +30,9 @@ class ResultatsAdminController extends Controller
         $currentBoats = unserialize($regate->bateaux);
       }
       $boats = DB::table('bateau')->whereIn('bateau_id', $currentBoats)->get()->all();
-      return view('resultatsAdmin', compact('boats'))->with('regate', $regate);
+
+      $podiumBoats = DB::table('bateau')->whereIn('bateau_id', $currentBoats)->where('temps', "!=", null)->orderBy('temps', 'asc')->get()->all();
+      return view('resultatsAdmin', compact('boats','podiumBoats'))->with('regate', $regate);
     }
 
     public function store(Request $request) {

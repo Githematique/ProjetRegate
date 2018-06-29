@@ -1,22 +1,36 @@
 function init() {
+  document._video = document.getElementById("video");
+
   // var oA = document.getElementById('test');
   // var heur = document.getElementById('heure');
   // var addi = document.getElementById('addition');
+  var position = 1;
+  function setPodium(finalTime, btnClass) {
+    var boatName = $(btnClass).find('input:nth-child(2)').val();
+
+    $('.podium-body')
+      .append(`<tr>
+          <td>`+boatName+`</td>
+          <td>`+finalTime+`</td>
+          <td>`+position+`</td>
+        `);
+    position++;
+  }
+
   $('.set-arrival-btn').click(function(e) {
-    document._video = document.getElementById("video");
 
     var tmpSeconds = tmpTimeEnd.diff(tmpTimeStart, 'seconds');
     var currentVideotime = document._video.currentTime;
     var totalSeconds = tmpSeconds + currentVideotime;
     var finalTime = moment.utc(totalSeconds*1000).format('HH:mm:ss');
-    console.log(typeof finalTime);
+    // console.log(typeof finalTime);
 
     var boatId = $(this).find('input:first').val();
     $.ajax({
         type: "POST",
         url: '/admin/boat/setTime/'+boatId,
         data: {
-         time: finalTime
+         timeSeconds: totalSeconds
         },
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -28,6 +42,8 @@ function init() {
           console.log(e);
         }
       });
+      $(this).parent().parent().addClass('hidden');
+      setPodium(finalTime, this);
 
     // console.log(moment.utc(totalSeconds*1000).format('HH:mm:ss'));
   });
