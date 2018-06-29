@@ -23,16 +23,16 @@
 //     }
 //   });
 
-$.ajax({
-    type: "POST",
-    url: '/admin/regate/setEndTime',
-    data: {
-     heure_arr: heure_arr
-    },
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    },
-    success: function() {
-      console.log("End Hour added");
-    }
-  });
+// $.ajax({
+//     type: "POST",
+//     url: '/admin/regate/setEndTime',
+//     data: {
+//      heure_arr: heure_arr
+//     },
+//     headers: {
+//       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     },
+//     success: function() {
+//       console.log("End Hour added");
+//     }
+//   });

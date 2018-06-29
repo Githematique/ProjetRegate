@@ -137,4 +137,16 @@ class BoatAdminController extends Controller
 
         return redirect()->route('adminBoat.addCrewView', ['boatId' => $bateau_id]);
     }
+
+    //Set the time of the boat for the current regate
+    public function setTime(Request $request, $bateau_id)
+    {
+      $time = $request->time;
+      echo $request;
+      if (!is_null($time)) {
+        DB::table('bateau')->where('bateau_id', $bateau_id)->update(['temps' => $time]);
+        return 'true';
+      }
+      abort(400, 'No time found');
+    }
 }

@@ -3,7 +3,12 @@
 @section('title', 'ResultatsAdmin')
 
 @section('content')
+  <script type="text/javascript">
+    var tmpTimeStart = moment('{!! $regate->heure_dep !!}');
+    var tmpTimeEnd = moment('{!! $regate->heure_arr !!}');
 
+  </script>
+  <script type="text/javascript" src="{{ URL::asset('js/resultsPage.js') }}"></script>
 <div class="row text-center">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
       <div class="panel panel-default">
@@ -32,12 +37,18 @@
     <thead>
       <tr>
         <th>Nom</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      @foreach($datas as $data)
+      @foreach($boats as $boat)
       <tr>
-        <th>{{ $data->nom }}</th>
+        <th>{{ $boat->nom }}</th>
+        <th>
+          <button type="button" name="button" class="set-arrival-btn btn btn-success">Arrivé
+          <input type="text" name="" value="{{$boat->bateau_id}}" class="hidden set-arrival-timer"></button>
+
+        </th>
       </tr>
       @endforeach
     </tbody>
@@ -73,5 +84,5 @@
 <a id="heure">heure actuelle</a>
 <a id="addition">addition</a>
 </div>
-<script type="text/javascript" src="{{ URL::asset('js/resultsPage.js') }}"></script>
+
 @endsection

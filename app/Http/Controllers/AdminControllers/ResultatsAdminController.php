@@ -29,8 +29,8 @@ class ResultatsAdminController extends Controller
       if (!is_null($regate->bateaux) &&strlen($regate->bateaux)) {
         $currentBoats = unserialize($regate->bateaux);
       }
-      $datas = DB::table('bateau')->whereIn('bateau_id', $currentBoats)->get()->all();
-      return view('resultatsAdmin', compact('datas'));
+      $boats = DB::table('bateau')->whereIn('bateau_id', $currentBoats)->get()->all();
+      return view('resultatsAdmin', compact('boats'))->with('regate', $regate);
     }
 
     public function store(Request $request) {

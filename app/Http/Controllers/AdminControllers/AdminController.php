@@ -55,9 +55,8 @@ class AdminController extends Controller
             // $gpio_orange_off = shell_exec("/usr/local/bin/gpio -g write 22 0");
 
         } elseif (isset($_GET['depart'])) {
-
-            DB::table('regate')->update(['etape' => 'depart']);
-
+            $currentDateTime = new \DateTime();
+            DB::table('regate')->update([/*'etape' => 'depart',*/ 'heure_dep' => $currentDateTime]);
             // for ($x = 1; $x <= 10; $x++) {
             //     $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
             //     sleep(0.5);
@@ -174,13 +173,12 @@ class AdminController extends Controller
             DB::table('regate')->update(['etape' => 'modification']);
         }
         if (isset($_GET['arrivee'])) {
-
-            DB::table('regate')->update(['etape' => 'terminee']);
+            $currentDateTime = new \DateTime();
+            DB::table('regate')->update(['etape' => 'terminee', 'heure_arr' => $currentDateTime]);
         }
 
 
         if (isset($_GET['annulation'])) {
-
             DB::table('regate')->update(['etape' => 'annulation']);
             // for ($x = 1; $x <= 10; $x++) {
             //     $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");

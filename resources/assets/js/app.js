@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 require('./fontawesome-all.min.js');
+window.moment = require('moment');
 // window.Vue = require('vue');
 //
 // /**
