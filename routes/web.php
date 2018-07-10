@@ -21,9 +21,11 @@ Route::group(['middleware' => 'under-construction'], function () {
 
   Route::get('/', 'AdminControllers\AdminController@index')->name('accueil');
 
-  Route::get('/admin/', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
 
   //Dashboard to manage results and the camera
+  Route::get('/admin/', 'AdminControllers\ResultatsAdminController@index')->name('resultats');
+  Route::get('/admin/excel', 'AdminControllers\ResultatsAdminController@generateExcel')->name('resultats.excel');
+
   Route::get('/admin/camera', 'AdminControllers\CameraController@index')->name('camera');
 
   //Dashboard to manage boats and crews
@@ -63,6 +65,7 @@ Route::group(['middleware' => 'under-construction'], function () {
   Route::get('/admin/regate/addAllBoat', 'AdminControllers\RegateAdminController@addAllBoatsToRegate')->name('regateAdmin.addAllBoat');
   Route::get('/admin/regate/removeBoat/{boatId}', 'AdminControllers\RegateAdminController@removeBoatFromRegate')->name('regateAdmin.removeBoat');
   Route::get('/admin/regate/removeAllBoat', 'AdminControllers\RegateAdminController@removeAllBoatsFromRegate')->name('regateAdmin.removeAllBoat');
+
 });
   Route::post('/admin/regate/setStartTime', 'AdminControllers\RegateAdminController@updateStartTimeRegate')->name('regateAdmin.updateStartTime');
   Route::post('/admin/regate/setEndTime', 'AdminControllers\RegateAdminController@updateEndTimeRegate')->name('regateAdmin.updateEndTime');

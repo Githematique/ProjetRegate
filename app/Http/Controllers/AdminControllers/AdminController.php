@@ -56,7 +56,7 @@ class AdminController extends Controller
 
         } elseif (isset($_GET['depart'])) {
             $currentDateTime = new \DateTime();
-            DB::table('regate')->update([/*'etape' => 'depart',*/ 'heure_dep' => $currentDateTime]);
+            DB::table('regate')->update(['etape' => 'depart', 'heure_dep' => $currentDateTime]);
             // for ($x = 1; $x <= 10; $x++) {
             //     $gpio_buzze_on = shell_exec("/usr/local/bin/gpio -g write 2 1");
             //     sleep(0.5);

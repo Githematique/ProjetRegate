@@ -66,7 +66,9 @@
 
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
     <div class="panel panel-default">
-      <div class="panel-heading">Podium : <i class="far fa-file-pdf"></i> </div>
+      <div class="panel-heading">Podium :
+        <a href="/admin/excel"><i class="far fa-file-pdf"></i> </a>
+      </div>
       <div class="panel-body">
         <table class="table text-center">
           <thead>
