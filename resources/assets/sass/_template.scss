@@ -6,6 +6,11 @@ html, body {
     box-sizing: border-box;
 }
 
+nav {
+  @media screen and (max-width: 600px ) {
+    display: none;
+  }
+}
 .main-container {
   margin-top: 50px;
   padding-top: 50px;
@@ -48,4 +53,3 @@ html, body {
 .m-b-md {
     margin-bottom: 30px;
 }
-
