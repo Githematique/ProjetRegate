@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         'LarsJanssen\UnderConstruction\UnderConstructionServiceProvider',
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
     ],
 
     /*

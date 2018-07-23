@@ -3,10 +3,10 @@
 @section('title', 'ResultatsAdmin')
 
 @section('content')
-<script type="text/javascript">
+{{-- <script type="text/javascript">
   var tmpTimeStart = moment('{!! $regate->heure_dep !!}');
   var tmpTimeEnd = moment('{!! $regate->heure_arr !!}');
-</script>
+</script> --}}
 <script type="text/javascript" src="{{ URL::asset('js/resultsPage.js') }}"></script>
 <div class="row text-center">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
@@ -34,7 +34,10 @@
       </div>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+
+  <div id="podium" class="col-xs-12 col-sm-12 col-md-12 col-lg-6"></div>
+
+  {{-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
     <div class="panel panel-default">
       <div class="panel-heading">Liste des Bateaux : </div>
       <div class="panel-body">
@@ -95,10 +98,7 @@
         </table>
       </div>
     </div>
-  </div>
-  <a id="test">currentTime</a>
-  <a id="heure">heure actuelle</a>
-  <a id="addition">addition</a>
+  </div> --}}
 </div>
 
 @endsection

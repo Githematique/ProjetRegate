@@ -139,14 +139,12 @@ class BoatAdminController extends Controller
         return redirect()->route('adminBoat.addCrewView', ['boatId' => $bateau_id]);
     }
 
-    //Set the time of the boat for the current regate
+    //Set the time (format hh:minutes:s) and the total in seconds of the boat for the current regate
     public function setTime(Request $request, $bateau_id)
     {
-      $coeff = DB::table('bateau')->where('bateau_id', $bateau_id)->value('coefficient');
-      $time = gmdate("H:i:s", ($request->timeSeconds*$coeff));
-      echo $time;
+      $time = gmdate("H:i:s", ($request->timeSeconds));
       if (!is_null($time)) {
-        DB::table('bateau')->where('bateau_id', $bateau_id)->update(['temps' => $time]);
+        DB::table('bateau')->where('bateau_id', $bateau_id)->update(['temps' => $time, 'totalSeconds' => $request->timeSeconds]);
         return 'true';
       }
       abort(400, 'No time found');
@@ -156,7 +154,7 @@ class BoatAdminController extends Controller
     public function resetTime($bateau_id)
     {
 
-      DB::table('bateau')->where('bateau_id', $bateau_id)->update(['temps' => null]);
+      DB::table('bateau')->where('bateau_id', $bateau_id)->update(['temps' => null, 'totalSeconds' => null]);
 
       return redirect()->route('resultats');
     }
