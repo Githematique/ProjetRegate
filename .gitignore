@@ -9,13 +9,13 @@ app/storage/
 # Laravel 5 & Lumen specific
 public/storage
 public/hot
-/public/css/*.css
+/public/css
 /public/storage
 storage/*.key
+storage/logs
 /public/fonts
 /public/mix-manifest.json
-/public/js/app.js
-/public/js/vendor.js
+/public/js/*
 .env.*.php
 .env.php
 .env

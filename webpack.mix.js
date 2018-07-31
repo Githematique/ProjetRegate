@@ -11,6 +11,8 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
-mix.browserSync();
+mix.react(['resources/assets/js/app.js'], 'public/js/vendor.js')
+  .react(['resources/assets/js/customJs.js'], 'public/js/script.js')
+  .js(['resources/assets/js/resultsPage.js'], 'public/js/resultsPage.js')
+  .sass('resources/assets/sass/app.scss', 'public/css');
+mix.browserSync({open: false});

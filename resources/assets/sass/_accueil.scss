@@ -1,0 +1,140 @@
+.home-container {
+	@media screen and (max-width: 600px ) {
+		.led-container {
+			display: none;
+		}
+		.btn-container {
+			height: 200px !important;
+			width: 200px;
+			font-size: 0.5em;
+			border-radius: 50%;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+	.btn-container {
+		text-align: center;
+		height: 35%;
+		margin-bottom: 10px;
+		padding-top: 7%;
+		.btn {
+			color: white;
+			font-size: 3em;
+			background-color: transparent;
+		}
+	}
+}
+
+
+.blockStatus{
+	background-color: blue;
+	width: 100%;
+	max-height: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+}
+.btn{
+		margin-top: 5%;
+    color: black;
+	}
+.btn:hover {
+      color: #d1d1e0;
+    }
+.apercu{
+  background-color: #0066ff;
+}
+.depart{
+  background-color: #009933;
+}
+.arrivee{
+  background-color: #009933;
+}
+.rappel_g{
+  background-color: #cc33ff;
+}
+.rappel_i{
+  background-color: #ff9999;
+}
+.annulation{
+  background-color: #cc0000;
+}
+.modification{
+  background-color: #ff9900;
+}
+.panel{
+  margin-top: 5%;
+}
+.panel-heading{
+  text-align: center;
+  color: black;
+  font: 35px arial;
+}
+.led1{
+  margin:0;
+  margin-left: 10%;
+  position:relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #333;
+  border-radius: 50%;
+  vertical-align: middle;
+  mix-blend-mode: hard-light;
+}
+.led2{
+  margin:0;
+  margin-left: 10%;
+  position:relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #333;
+  border-radius: 50%;
+  vertical-align: middle;
+  mix-blend-mode: hard-light;
+}
+.led3{
+  margin:0;
+  margin-left: 10%;
+  position:relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #333;
+  border-radius: 50%;
+  vertical-align: middle;
+  mix-blend-mode: hard-light;
+}
+.led4{
+  margin:0;
+  margin-left: 10%;
+  position:relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #333;
+  border-radius: 50%;
+  vertical-align: middle;
+  mix-blend-mode: hard-light;
+}
+.petitSon{
+  margin:0;
+  margin-left: 10%;
+  position:relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: #333;
+  vertical-align: middle;
+}
+.grandSon{
+  margin:0;
+  margin-left: 10%;
+  position:relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: #333;
+  vertical-align: middle;
+}
