@@ -27,7 +27,13 @@ php artisan key:generate
 ```sh
 $ npm install
 ```
-7. Start the application
+7. Compile CSS/Javascript
+```sh
+$ npm run watch
+```
+8. OPEN ANOTHER BASH
+
+9. Start the application
 ```sh
 $ php artisan serve
 ```
