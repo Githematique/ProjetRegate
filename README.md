@@ -37,3 +37,7 @@ $ npm run watch
 ```sh
 $ php artisan serve
 ```
+10. Generate PIN code to access the site
+```sh
+$ php artisan code:set *your pin*  (https://github.com/larsjanssen6/underconstruction)
+```
