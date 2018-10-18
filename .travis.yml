@@ -7,4 +7,4 @@ before_script:
   - chmod a+x php-cs-fixer-v2
 
 script:
-  - ./php-cs-fixer-v2 fix / --diff --dry-run -vvv
+  - ./php-cs-fixer-v2 fix /app --diff --dry-run -vvv
