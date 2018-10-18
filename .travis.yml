@@ -1,13 +1,12 @@
 language: php
 php:
-  - '7.0'
-
+- '7.0'
 script:
-  - echo 'slt'
-#
-# before_script:
-#   - wget https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O php-cs-fixer-v2
-  #   - chmod a+x php-cs-fixer-v2
-  #
-  # script:
-  #   - ./php-cs-fixer-v2 fix app --rules=@Symfony --diff --dry-run -vv
+- echo 'slt'
+deploy:
+  provider: heroku
+  api_key:
+    secure: P3ygKgHpAFRqJWQVmGHELNY+H+4y2Butgj++FZL9qTJNhniY+Rs4mskPwnr5tHNufBxjeaaMcRJmfZjpnwCrd2nRxi6WCanUoyCnkToWnN01VE78doUOJ257QE2G2UD3yfdFV5D1nuJkLLF6dGV6TJkfoKPa8muROBrjS9xQVwfrjeWXjxg5X6ObG2QjdKqdSmeW/ImLSQnRKWCbcABp0m0goQyycjQtiu19Ca+xs/fcqht3WQSkztExcecUvj4XL8rLl6sgmg31dq05FWoD2r/EzJjKSLofBRHGmonsIn7z74wkF6byE+b3/ILoHUL+y6pVx6G3Nm013eFjrP9ek2rFEFlppyvVkJxLBbnIoDNZ+v3c5EsIQ3Ax4eBwFlVm97b8s4in9bNLag/Y3ksRo34qL1sENoqnnFoV2r1ke9F+5et0/RcSuBsZTwcs6YNDZQMwivxHm2tm9BgRJDIe5bg2ZD7M6fK6AUQmY53nT6CIbiILDkOtjhEfrMLu9zLDFEhFavTUy9yxc4D4fOKDnGvVBWes3GXDGkyIhlhKTN6iQzBVrss6nwmQVjV+3RJNreHt2dAs605nizcIP6nv2+ikzjyZvkv8BzazbjJwnNC6ihWDS9ad+vC2yQyZty18XAAyKekNoKLeuvqMKQ4kpeQk9QQg2DFfabcnW2XdoOc=
+  app: d60-034a-482-eb5ef322
+  on:
+    repo: Githematique/ProjetRegate
