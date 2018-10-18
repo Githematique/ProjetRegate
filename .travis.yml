@@ -1,10 +1,13 @@
 language: php
 php:
   - '7.0'
-# 
+
+script:
+  - echo 'slt'
+#
 # before_script:
 #   - wget https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O php-cs-fixer-v2
-#   - chmod a+x php-cs-fixer-v2
-#
-# script:
-#   - ./php-cs-fixer-v2 fix app --rules=@Symfony --diff --dry-run -vv
+  #   - chmod a+x php-cs-fixer-v2
+  #
+  # script:
+  #   - ./php-cs-fixer-v2 fix app --rules=@Symfony --diff --dry-run -vv
